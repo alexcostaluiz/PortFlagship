@@ -24,7 +24,7 @@
             <div class="imgSliderItemTextDivider"></div>
             <span class="imgSliderItemSubtitle clearboth">Niterói, Rio de Janeiro, Brazil</span>
           </div>
-          <div class="yellow rounded imgSliderItemImgHolder">
+          <div class="yellow imgSliderItemImgHolder">
             <img class="imgSliderItemImg" src="http://www.portflagship.org/wp-content/uploads/2018/11/museu_de_arte_contemporanea.png" alt="">
           </div>
         </div>

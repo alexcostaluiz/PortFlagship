@@ -14,22 +14,22 @@
       <span class="footer-subtitle clearboth">Located in the Latin American & Caribbean</span>
       <span class="footer-subtitle clearboth bottom32">Studies Institute, University of Georgia</span>
       <div class="footer-flex bottom16">
-        <img class="footer-icon no-rounded" src="http://www.portflagship.org/wp-content/uploads/2018/11/phone-call-button.png" alt="">
+        <img class="footer-icon" src="http://www.portflagship.org/wp-content/uploads/2018/11/phone-call-button.png" alt="">
         <span><a href="tel:+1-706-542-0470">(706) 542-0470</a></span>
       </div>
       <div class="footer-flex bottom16">
-        <img class="footer-icon no-rounded" src="http://www.portflagship.org/wp-content/uploads/2018/11/black-envelope-email-symbol.png" alt="">
+        <img class="footer-icon" src="http://www.portflagship.org/wp-content/uploads/2018/11/black-envelope-email-symbol.png" alt="">
         <span><a href="mailto:schmaltz@uga.edu">schmaltz@uga.edu</a></span>
       </div>
       <div class="footer-flex bottom16">
-        <img class="footer-icon no-rounded" src="http://www.portflagship.org/wp-content/uploads/2018/11/bank.png" alt="">
+        <img class="footer-icon" src="http://www.portflagship.org/wp-content/uploads/2018/11/bank.png" alt="">
         <span>290 S. Hull Street<br>Athens, GA 30602</span>
       </div>
     </div>
     <div class="four columns">
       <span class="footer-title clearboth">Find us</span>
       <div id="map">
-        <img id="placeholder" src="http://www.portflagship.org/wp-content/uploads/2018/11/map.png" alt="">
+        <img id="placeholder" src="http://www.portflagship.org/wp-content/uploads/2018/11/map2.png" alt="">
         <div id="enable" class="content-button">Enable</div>
       </div>
     </div>

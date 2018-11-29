@@ -3,7 +3,7 @@
 
 <!-- Slider container -->
 <div class="slider">
-  <div class="sliderImg rounded"></div>
+  <div class="sliderImg"></div>
   <div class="sliderItem">
     <span class="sliderTitle clearboth">Get on board with Flagship</span>
     <span class="sliderSubtitle clearboth">Do you want to study abroad and intern in Brazil? Click the image to watch our program video and see why you should be a part of the Portuguese Flagship program at UGA.</span>
@@ -191,7 +191,7 @@
         <a class="content-paragraph content-link-invert" href="program.php">Learn more</a>
       </div>
     </div>
-    <img class="four columns no-rounded" src="http://www.portflagship.org/wp-content/uploads/2018/11/apply.jpg" alt="">
+    <img class="four columns" src="http://www.portflagship.org/wp-content/uploads/2018/11/apply.jpg" alt="">
   </div>
 </div>
 

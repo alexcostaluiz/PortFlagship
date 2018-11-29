@@ -14,16 +14,8 @@
 * ===============================================
 */
 
-img {
-  border-radius: 15px;
-}
-
-.rounded {
-  border-radius: 15px;
-}
-
-.no-rounded {
-  border-radius: 0px;
+span {
+  cursor: default;
 }
 
 /*
@@ -39,7 +31,6 @@ img {
 .indicator {
   height: 3px;
   width: 0%;
-  border-radius: 5px;
   background-color: #222;
   position: absolute;
   left: 0;
@@ -78,7 +69,7 @@ img {
   display: none;
   margin: 3.5px 0 0 0;
   position: absolute;
-  border-radius: 15px;
+  /*border-radius: 15px;*/
   overflow: hidden;
   left: 50%;
   border: .5px solid #d3d3d3;
@@ -426,7 +417,6 @@ img {
   height: 4px;
   max-width: 66px;
   background-color: #ffc906;
-  border-radius: 2px;
   margin: 16px 0;
   opacity: 0;
   transform: translateX(80px);
@@ -479,7 +469,6 @@ img {
 
 .slider-arrow {
   max-height: 12px;
-  border-radius: 0px;
   opacity: 0.0;
   padding: 8px;
   cursor: pointer;
@@ -563,7 +552,6 @@ img {
 .content-text-container {
   padding: 56px;
   text-align: justify;
-  border-radius: 15px;
   cursor: default;
 }
 
@@ -632,26 +620,28 @@ img {
 .content-button {
   font-family: 'Montserrat';
   background-color: #fff;
-  border-radius: 20px;
-  height: 40px;
+  border-radius: 21.5px;
+  border: 3px solid transparent;
+  height: 37px;
   padding: 0 20px;
-  line-height: 40px;
+  line-height: 37px;
   font-weight: bold;
   text-align: center;
   display: inline-block;
   color: #222;
   text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: color 150ms ease, box-shadow 300ms ease;
-  -webkit-transition: color 150ms ease, box-shadow 300ms ease;
-  -moz-transition: color 150ms ease, box-shadow 300ms ease;
-  -o-transition: color 150ms ease, box-shadow 300ms ease;
+  transition: color 150ms ease, background-color 300ms ease, border-color 300ms ease;
+  -webkit-transition: color 150ms ease, background-color 300ms ease, border-color 300ms ease;
+  -moz-transition: color 150ms ease, background-color 300ms ease, border-color 300ms ease;
+  -o-transition: color 150ms ease, background-color 300ms ease, border-color 300ms ease;
 }
 
 .content-button:hover {
-  color: #7CBC40;
-  text-decoration: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  color: white;
+  background-color: #323232;
+  border-color: white;
 }
 
 .headshot-flex {
@@ -906,7 +896,6 @@ _:-ms-lang(x), .partner-flex {
   width: 300px;
   background-color: #323232;
   margin: 0 auto;
-  border-radius: 15px;
   overflow: hidden;
 }
 

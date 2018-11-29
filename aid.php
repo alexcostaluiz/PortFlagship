@@ -14,7 +14,7 @@
             <span class="imgSliderItemTitle imgSliderItemTitleAnim clearboth">Rio De<br>Janeiro, Brazil</span>
           </div>
         </div>
-        <div class="yellow rounded imgSliderItemImgHolder imgSliderItemImgHolderAnim">
+        <div class="yellow imgSliderItemImgHolder imgSliderItemImgHolderAnim">
           <img class="imgSliderItemImg imgSliderItemImgAnim" src="http://www.portflagship.org/wp-content/uploads/2012/10/Brazil-315.jpeg" alt="">
         </div>
       </div>
