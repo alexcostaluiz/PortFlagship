@@ -7,35 +7,37 @@
     <span class="content-title clearboth">Why Portuguese?</span>
     <span class="content-subtitle clearboth">Why Brazil?</span>
   </div>
-  <div class="row-flex">
+  <div class="row-flex bottom48">
     <div class="eight columns">
-      <div class="row-flex marg32 noTop imgSlider" style="justify-content: space-between">
-        <div class="loading">
+      <div class="imgSlider" @mouseover="mouseenter" @mouseout="mouseleave" style="justify-content: space-between">
+        <div class="loading" :class="{ohide: loaded}">
           <div id="one"></div>
           <div id="two"></div>
           <div id="three"></div>
         </div>
-        <img class="slider-arrow aleft" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
-        <div class="imgSliderItem">
+        <img class="slider-arrow aleft" :class="{'aleft-animate': hovered, oshow: hovered}" @click="goToImg(0, 0)" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
+        <div class="imgSliderItem" :class="{imgSliderItemAnimLeft: exitLeft, imgSliderItemAnimRight: exitRight}" id="imgSliderItem">
           <div class="imgSliderItemText">
-            <div class="" style="overflow: hidden">
-              <span class="imgSliderItemTitle clearboth">Niterói<br>Contemporary<br>Art Museum</span>
+            <div style="overflow: hidden">
+              <span class="imgSliderItemTitle clearboth" :class="{imgSliderItemTitleAnim: animate}" ref="imgSliderItemTitle">{{ title }}</span>
             </div>
-            <div class="imgSliderItemTextDivider"></div>
-            <span class="imgSliderItemSubtitle clearboth">Niterói, Rio de Janeiro, Brazil</span>
+            <div class="imgSliderItemTextDivider" :class="{imgSliderItemTextDividerAnim: animate}" ref="imgSliderItemTextDivider"></div>
+            <span class="imgSliderItemSubtitle clearboth" :class="{imgSliderItemSubtitleAnim: animate}" ref="imgSliderItemSubtitle">{{ subtitle }}</span>
           </div>
-          <div class="yellow imgSliderItemImgHolder">
-            <img class="imgSliderItemImg" src="http://www.portflagship.org/wp-content/uploads/2018/11/museu_de_arte_contemporanea.png" alt="">
+          <div class="yellow imgSliderItemImgHolder" :class="{imgSliderItemImgHolderAnim: animate}" ref="imgSliderItemImgHolder">
+            <img class="imgSliderItemImg" :class="{imgSliderItemImgAnim: animate}" :src="img" ref="imgSliderItemImg" alt="">
           </div>
         </div>
-        <img class="slider-arrow aright" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
+        <img class="slider-arrow aright" :class="{'aright-animate': hovered, oshow: hovered}" @click="goToImg(1, 0)" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
+        <div class="imgSliderIndicator" :class="{oshow: hovered}" @mouseover="mouseenter" @mouseout="mouseleave">
+          <div class="imgSliderIndicatorItem" v-for="index in length" :key="index" :class="{imgSliderIndicatorItemSelected: ((index - 1) === current)}"  @click="goToImg(2, index)"></div>
+        </div>
       </div>
-      <div class="imgSliderIndicator"></div>
     </div>
   </div>
   <div class="row-flex bottom64">
     <div class="eight columns">
-      <div class="content-text-container pad32">
+      <div class="content-text-container padNone">
         <span class="content-paragraph">
           There are nearly 236 million native speakers of Portuguese in an increasingly globalized world.
           Portuguese is widely spoken in Brazil, Portugal, Angola, Cape Verde, Guinea-Bissau, Mozambique,

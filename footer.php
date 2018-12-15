@@ -30,7 +30,7 @@
       <span class="footer-title clearboth">Find us</span>
       <div id="map">
         <img id="placeholder" src="http://www.portflagship.org/wp-content/uploads/2018/11/map2.png" alt="">
-        <div id="enable" class="content-button">Enable</div>
+        <div id="enable" class="content-button" onclick="onClickEnable()">Enable</div>
       </div>
     </div>
     <div class="four columns">

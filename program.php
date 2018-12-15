@@ -3,12 +3,12 @@
 
 <!-- Program content container -->
 <div class="container light-grey">
-  <div class="row pad64 padNoBottom">
+  <div class="row pad64">
     <span class="content-title clearboth">Study Abroad</span>
-    <span class="content-subtitle clearboth">Portuguese Flagship Program</span>
+    <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
   <div class="row">
-    <div class="six columns pad64">
+    <div class="six columns pad64 padNoTop">
       <span class="content-header center-text bottom16 clearboth">Summer Immersion Programs</span>
       <div class="divider bottom48"></div>
       <span class="content-header center-text font20 clearboth">Intensive Portuguese Language Program</span>
@@ -32,7 +32,9 @@
         All courses are taught at the Universidade do Sul de Santa Catarina by local university professors. ISA students take classes
         alongside other ISA students.<br>
         <br>
-        <i>Please note that a student visa is required for all ISA Brazil summer programs. Applying for a visa could require out of state travel.</i><br><br><br>
+        <i>Please note that a student visa is required for all ISA Brazil summer programs. Applying for a visa could require out of state travel.</i><br>
+        <br>
+        <br>
       </span>
       <p class="content-header font20">Highlights</p>
       <span class="content-paragraph justify-text clearboth">
@@ -45,20 +47,29 @@
         <b>Minimum GPA</b><br>
         Students must have a minimum grade point average of 2.50.<br>
         <b>Minimum Language Prerequisites</b><br>
-        There are no language prerequisites for this program.<br><br><br>
+        There are no language prerequisites for this program.<br>
+        <br>
+        <br>
       </span>
       <p class="content-header font20">Course Disclaimer</p>
       <span class="content-paragraph justify-text clearboth">
-        Courses and course hours of instruction are subject to change.<br><br>
-        Eligibility for courses may be subject to a placement exam and/or pre-requisites.<br><br>
+        Courses and course hours of instruction are subject to change.<br>
+        <br>
+        Eligibility for courses may be subject to a placement exam and/or pre-requisites.<br>
+        <br>
         Credits earned vary according to the policies of the students' home institutions. According to ISA policy and possible visa requirements,
-        students must maintain full-time enrollment status, as determined by their home institutions, for the duration of the program.<br><br>
+        students must maintain full-time enrollment status, as determined by their home institutions, for the duration of the program.<br>
+        <br>
         Availability of courses is based on enrollment numbers. All students should seek pre-approval for alternate courses in the event of last
-        minute class cancellations.<br><br><br>
+        minute class cancellations.<br>
+        <br>
+        <br>
       </span>
       <p class="content-header font20">Sessions</p>
       <span class="content-paragraph justify-text clearboth">
-        Please visit the <a target="_blank" href="https://studiesabroad.com/programs/country/brazil/city/florianopolis/duration/115">ISA website</a> for available sessions.<br><br><br>
+        Please visit the <a target="_blank" href="https://studiesabroad.com/programs/country/brazil/city/florianopolis/duration/115">ISA website</a> for available sessions.<br>
+        <br>
+        <br>
       </span>
       <p class="content-header font20">More Information</p>
       <span class="content-paragraph justify-text clearboth bottom48">
@@ -71,7 +82,7 @@
         Please visit the <a target="_blank" href="http://www.middlebury.edu/ls/portuguese">Middlebury website</a> for more information.
       </span>
     </div>
-    <div class="six columns pad64">
+    <div class="six columns pad64 padNoTop">
       <span class="content-header center-text bottom16 clearboth">Capstone Year</span>
       <div class="divider"></div>
     </div>

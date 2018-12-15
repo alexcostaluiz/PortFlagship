@@ -8,39 +8,13 @@
 
 /*
 * ===============================================
-* Document initialization function
-* ===============================================
-*/
-
-$(document).ready(function() {
-
-  // initialize navigation bar
-  $(".nav li").data("Selected", false);
-
-  var pageName = document.title.substr(22);
-
-  if (pageName === "Why Portuguese?") {
-    initImgSlider();
-  }
-
-  if (pageName === "Financial Aid") {
-    initImgAnim();
-  }
-
-  initNav(pageName);
-  initFooter();
-
-});
-
-/*
-* ===============================================
-* Image Slider functions
+* Global functions
 * ===============================================
 */
 
 function whichStartAnimationEvent() {
   var t,
-  el = document.createElement("fakeelement");
+  el = document.createElement("fakeelement")
 
   var animations = {
     "animation"      : "animationstart",
@@ -51,14 +25,14 @@ function whichStartAnimationEvent() {
 
   for (t in animations){
     if (el.style[t] !== undefined){
-      return animations[t];
+      return animations[t]
     }
   }
 }
 
 function whichEndAnimationEvent() {
   var t,
-  el = document.createElement("fakeelement");
+  el = document.createElement("fakeelement")
 
   var animations = {
     "animation"      : "animationend",
@@ -69,306 +43,90 @@ function whichEndAnimationEvent() {
 
   for (t in animations){
     if (el.style[t] !== undefined){
-      return animations[t];
+      return animations[t]
     }
   }
 }
 
-function animateSliderItem($sliderItem, data, index) {
-  var animationStartEvent = whichStartAnimationEvent();
-  var animationEndEvent = whichEndAnimationEvent();
+function whichEndTransitionEvent() {
+  var t,
+  el = document.createElement("fakeelement")
 
-  var $slider = $(".imgSlider");
-
-  var $sliderItemImgHolder = $(".imgSliderItemImgHolder", $sliderItem);
-  var $sliderItemImg = $(".imgSliderItemImg", $sliderItem);
-  var $sliderItemTitle = $(".imgSliderItemTitle", $sliderItem);
-  var $sliderItemSubtitle = $(".imgSliderItemSubtitle", $sliderItem);
-  var $sliderItemDivider = $(".imgSliderItemTextDivider", $sliderItem);
-
-  $sliderItemTitle.text("");
-  $sliderItemTitle.append(data[index.toString()].title.join("<br>"));
-  $sliderItemSubtitle.text(data[index.toString()].subtitle);
-  $sliderItemImg.attr("src", data[index.toString()].imageURL);
-
-  $sliderItemImgHolder.css("transform", "");
-  $sliderItemImgHolder.css("opacity", "");
-  $sliderItemImgHolder.addClass("imgSliderItemImgHolderAnim");
-  $sliderItemImgHolder.one(animationEndEvent, function() {
-    $sliderItemImgHolder.css("opacity", 1);
-    $sliderItemImgHolder.css("transform", "translateY(0px)");
-    $sliderItemImgHolder.removeClass("imgSliderItemImgHolderAnim");
-  });
-
-  $sliderItemImg.one(animationStartEvent, function() {
-    $sliderItemImgHolder.addClass("imgSliderItemImgHolderAnim2");
-    $sliderItemImgHolder.one(animationEndEvent, function() {
-      $sliderItemImgHolder.css("transform", "translate(8px, -8px)");
-      $sliderItemImgHolder.removeClass("imgSliderItemImgHolderAnim2");
-    });
-  });
-  $sliderItemImg.css("transform", "");
-  $sliderItemImg.addClass("imgSliderItemImgAnim");
-  $sliderItemImg.one(animationEndEvent, function() {
-    $sliderItemImg.css("transform", "translate(-16px, 16px)");
-    $sliderItemImg.removeClass("imgSliderItemImgAnim");
-    $(".slider-arrow", $slider).data("Enabled", true);
-  });
-
-  $sliderItemTitle.css("transform", "");
-  $sliderItemTitle.css("opacity", "");
-  $sliderItemTitle.addClass("imgSliderItemTitleAnim");
-  $sliderItemTitle.one(animationEndEvent, function() {
-    $sliderItemTitle.css("opacity", 1);
-    $sliderItemTitle.css("transform", "translateY(0px)");
-    $sliderItemTitle.removeClass("imgSliderItemTitleAnim");
-  });
-
-  $sliderItemDivider.css("transform", "");
-  $sliderItemDivider.css("opacity", "");
-  $sliderItemDivider.addClass("imgSliderItemTextDividerAnim");
-  $sliderItemDivider.one(animationEndEvent, function() {
-    $sliderItemDivider.css("opacity", 1);
-    $sliderItemDivider.css("transform", "translateX(0px)");
-    $sliderItemDivider.removeClass("imgSliderItemTextDividerAnim");
-  });
-
-  $sliderItemSubtitle.css("transform", "");
-  $sliderItemSubtitle.css("opacity", "");
-  $sliderItemSubtitle.addClass("imgSliderItemSubtitleAnim");
-  $sliderItemSubtitle.one(animationEndEvent, function() {
-    $sliderItemSubtitle.css("opacity", 1);
-    $sliderItemSubtitle.css("transform", "translateY(0px)");
-    $sliderItemSubtitle.removeClass("imgSliderItemSubtitleAnim");
-  });
-}
-
-function nextImg($slider, $sliderItem, animationEndEvent, data) {
-
-  if (!$(".slider-arrow", $slider).data("Enabled")) {
-    return;
-  }
-  else {
-    $(".slider-arrow", $slider).data("Enabled", false);
+  var transitions = {
+    "transition"      : "transitionend",
+    "OTransition"     : "oTransitionEnd",
+    "MozTransition"   : "transitionend",
+    "WebkitTransition": "webkitTransitionEnd"
   }
 
-  var curr = $slider.data("i");
-  if (curr < Object.keys(data).length - 1) {
-    $slider.data("i", curr + 1);
-  }
-  else {
-    $slider.data("i", 0);
-  }
-  curr = $slider.data("i");
-
-  $sliderItem.addClass("imgSliderItemAnimLeft");
-  $sliderItem.one(animationEndEvent, function() {
-    $sliderItem.removeClass("imgSliderItemAnimLeft");
-    animateSliderItem($sliderItem, data, curr);
-  });
-  $(".imgSliderIndicatorItem").each(function() {
-    $(this).removeClass("imgSliderIndicatorItemSelected");
-    if ($(this).data("position") === curr) {
-      $(this).addClass("imgSliderIndicatorItemSelected");
+  for (t in transitions){
+    if (el.style[t] !== undefined){
+      return transitions[t]
     }
-  });
+  }
 }
 
-function goToImg($slider, $sliderItem, animationEndEvent, data, pos) {
+/*
+* ===============================================
+* Document initialization function
+* ===============================================
+*/
 
-  var curr = $slider.data("i");
-  if (pos === curr) {
-    return;
-  }
+window.addEventListener('load', function() {
 
-  if (!$(".slider-arrow", $slider).data("Enabled")) {
-    return;
-  }
-  else {
-    $(".slider-arrow", $slider).data("Enabled", false);
-  }
+  var pageName = document.title.substr(22)
 
-  $slider.data("i", pos);
-  if (pos > curr) {
-    $sliderItem.addClass("imgSliderItemAnimLeft");
-    $sliderItem.one(animationEndEvent, function() {
-      $sliderItem.removeClass("imgSliderItemAnimLeft");
-      animateSliderItem($sliderItem, data, pos);
-    });
-  }
-  else {
-    $sliderItem.addClass("imgSliderItemAnimRight");
-    $sliderItem.one(animationEndEvent, function() {
-      $sliderItem.removeClass("imgSliderItemAnimRight");
-      animateSliderItem($sliderItem, data, pos);
-    });
-  }
+  // declare global variables
+  window.animationStart = whichStartAnimationEvent()
+  window.animationEnd = whichEndAnimationEvent()
+  window.transitionEnd = whichEndTransitionEvent()
 
-  $(".imgSliderIndicatorItem").each(function() {
-    $(this).removeClass("imgSliderIndicatorItemSelected");
-    if ($(this).data("position") === pos) {
-      $(this).addClass("imgSliderIndicatorItemSelected");
-    }
-  });
-}
+  // get dropdown heights
+  initNav()
+  window.programDrop = document.getElementById('programDrop')
+  window.partnerDrop = document.getElementById('partnerDrop')
+  window.studentDrop = document.getElementById('studentDrop')
+  window.programDropHeight = window.getComputedStyle(programDrop).height
+  window.partnerDropHeight = window.getComputedStyle(partnerDrop).height
+  window.studentDropHeight = window.getComputedStyle(studentDrop).height
+  programDrop.style.height = 0
+  programDrop.style.zIndex = 2
+  partnerDrop.style.height = 0
+  partnerDrop.style.zIndex = 2
+  studentDrop.style.height = 0
+  studentDrop.style.zIndex = 2
 
-function initImgSlider() {
-
-  var animationStartEvent = whichStartAnimationEvent();
-  var animationEndEvent = whichEndAnimationEvent();
-
-  var $slider = $(".imgSlider");
-  $slider.data("i", 0);
-
-  $.getJSON("https://api.jsonbin.io/b/5bf69ee7746e9b593ec17162/2", function(data) {
-    var length = Object.keys(data).length;
-    if (length > 0) {
-
-      // get slider item variable
-      var $sliderItem = $(".imgSliderItem", $slider);
-
-      // show elements and hide load gif
-      $(".loading", $slider).animate({opacity: "0.0"}, 300, function() {
-        $(this).addClass("hide");
-        // animate slider for the first time
-        animateSliderItem($sliderItem, data, 0);
-      });
-
-      // fill slider indicator
-      for (i = 0; i < length; i++) {
-        var $indicator = $(".imgSliderIndicator");
-        var $indicatorItem = $("<div></div>").addClass("imgSliderIndicatorItem");
-        $indicatorItem.data("position", i);
-        if (i === 0) {
-          $indicatorItem.addClass("imgSliderIndicatorItemSelected");
-        }
-        $indicator.append($indicatorItem);
+  // set event listeners for dropdown menus
+  programDrop.addEventListener(transitionEnd, function(event) {
+    if (event.target === programDrop) {
+      if (programDrop.style.height === '0px') {
+        programDrop.style.opacity = 0
       }
-
-      // create automatic slide loop
-      $(".slider-arrow", $slider).data("Enabled", false);
-      setInterval(function(){nextImg($slider, $sliderItem, animationEndEvent, data);}, 10000);
-
-      // create click event for left arrow
-      $(".aleft", $slider).click(function() {
-        if (!$(".slider-arrow", $slider).data("Enabled")) {
-          return;
-        }
-        else {
-          $(".slider-arrow", $slider).data("Enabled", false);
-        }
-
-        var curr = $slider.data("i");
-        if (curr > 0) {
-          $slider.data("i", curr - 1);
-        }
-        else {
-          $slider.data("i", length - 1);
-        }
-        curr = $slider.data("i");
-
-        $sliderItem.addClass("imgSliderItemAnimRight");
-        $sliderItem.one(animationEndEvent, function() {
-          $sliderItem.removeClass("imgSliderItemAnimRight");
-          animateSliderItem($sliderItem, data, curr);
-        });
-        $(".imgSliderIndicatorItem").each(function() {
-          $(this).removeClass("imgSliderIndicatorItemSelected");
-          if ($(this).data("position") === curr) {
-            $(this).addClass("imgSliderIndicatorItemSelected");
-          }
-        });
-      });
-
-      // create click event for right arrow
-      $(".aright", $slider).click(function() {
-        if (!$(".slider-arrow", $slider).data("Enabled")) {
-          return;
-        }
-        else {
-          $(".slider-arrow", $slider).data("Enabled", false);
-        }
-
-        var curr = $slider.data("i");
-        if (curr < length - 1) {
-          $slider.data("i", curr + 1);
-        }
-        else {
-          $slider.data("i", 0);
-        }
-        curr = $slider.data("i");
-
-        $sliderItem.addClass("imgSliderItemAnimLeft");
-        $sliderItem.one(animationEndEvent, function() {
-          $sliderItem.removeClass("imgSliderItemAnimLeft");
-          animateSliderItem($sliderItem, data, curr);
-        });
-        $(".imgSliderIndicatorItem").each(function() {
-          $(this).removeClass("imgSliderIndicatorItemSelected");
-          if ($(this).data("position") === curr) {
-            $(this).addClass("imgSliderIndicatorItemSelected");
-          }
-        });
-      });
-
-      /*// automatic arrow and indicator animation to notify user of its existence
-      $(".aleft", $slider).addClass("aleft-animate");
-      $(".aright", $slider).addClass("aright-animate");
-      $(".imgSliderIndicator").stop().animate({opacity: "1.0"}, 300);
-      $(".slider-arrow", $slider).stop().animate({opacity: "1.0"}, 300, function() {
-        setTimeout(function () {
-          $(".aleft", $slider).removeClass("aleft-animate");
-          $(".aright", $slider).removeClass("aright-animate");
-          $(".imgSliderIndicator").stop().animate({opacity: "0.0"}, 500);
-          $(".slider-arrow").stop().animate({opacity: "0.0"}, 500);
-        }, 1000);
-      });*/
-
-      // create slider hover event to show arrows and indicator
-      $slider.hover(
-        function() {
-          $(".imgSliderIndicator").stop().animate({opacity: "1.0"}, 300);
-          $(".slider-arrow", $slider).stop().animate({opacity: "1.0"}, 300);
-          $(".aleft", $slider).addClass("aleft-animate");
-          $(".aright", $slider).addClass("aright-animate");
-        },
-        function() {
-          $(".imgSliderIndicator").stop().animate({opacity: "0.0"}, 500);
-          $(".slider-arrow", $slider).stop().animate({opacity: "0.0"}, 500);
-          $(".aleft", $slider).removeClass("aleft-animate");
-          $(".aright", $slider).removeClass("aright-animate");
-        }
-      );
-
-      $(".imgSliderIndicator").hover(
-        function() {
-          $(".imgSliderIndicator").stop().animate({opacity: "1.0"}, 300);
-          $(".slider-arrow", $slider).stop().animate({opacity: "1.0"}, 300);
-        },
-        function() {
-          $(".imgSliderIndicator").stop().animate({opacity: "0.0"}, 500);
-          $(".slider-arrow", $slider).stop().animate({opacity: "0.0"}, 500);
-        }
-      );
-
-      // create indicator item click event
-      $(".imgSliderIndicatorItem").click(function() {
-        goToImg($slider, $sliderItem, animationEndEvent, data, $(this).data("position"));
-      });
     }
-  });
-}
+  })
+  partnerDrop.addEventListener(transitionEnd, function(event) {
+    if (event.target === partnerDrop) {
+      if (partnerDrop.style.height === '0px') {
+        partnerDrop.style.opacity = 0
+      }
+    }
+  })
+  studentDrop.addEventListener(transitionEnd, function(event) {
+    if (event.target === studentDrop) {
+      if (studentDrop.style.height === '0px') {
+        studentDrop.style.opacity = 0
+      }
+    }
+  })
 
-function initImgAnim() {
-  var animationStartEvent = whichStartAnimationEvent();
-  var $holder = $(".imgSliderItemImgHolder");
-  var $img = $(".imgSliderItemImg");
-
-  $img.one(animationStartEvent, function() {
-    $holder.removeClass("imgSliderItemImgHolderAnim");
-    $holder.addClass("imgSliderItemImgHolderAnim2");
-  });
-}
+  // initialization
+  if (pageName === "Home") {
+    initSlider()
+    initStudentSlider()
+  }
+  if (pageName === "Why Portuguese?") { initImgSlider() }
+  if (pageName === "UFSJ") { initUfsjMore() }
+})
 
 /*
 * ===============================================
@@ -376,72 +134,510 @@ function initImgAnim() {
 * ===============================================
 */
 
-function initNav(pageName) {
-  $(".nav").children().each(function() {
-    var names = [];
-    names.push($("a", $(this)).contents().get(0).nodeValue);
-    if ($(this).children().length > 2) {
-      $("ul a li", $(this)).each(function() {
-        names.push($(this).text());
-      });
-    }
-    if (names.indexOf(pageName) != -1) {
-      $(this).data("Selected", true);
-      $("div.indicator", $(this)).stop().animate({width: "80%"}, 150);
-      return;
-    }
-  });
+function initNav() {
 
-  $(".nav li").hover(
-    function() {
-      $("div.indicator", this).stop(true).animate({width: "80%"}, 150);
-      $("ul", this).stop().slideDown(150);
+  var pageName = document.title.substring(22)
+
+  // navigation data
+  var navigation = new Vue({
+    el: ".nav",
+    data: {
+      tabs: [
+        {title: "Home", hovered: false, selected: false},
+        {title: "The Program", hovered: false, selected: false, dropdown: [
+          {title: 'Why Portuguese?', link: 'why.php'},
+          {title: 'Study Abroad', link: 'program.php'},
+          {title: 'Program Requirements', link: 'requirements.php'},
+          {title: 'Financial Aid', link: 'aid.php'},
+          {title: 'FAQ', link: 'faq.php'},
+          {title: 'Faculty & Staff', link: 'staff.php'}
+        ]},
+        {title: "Partnerships", hovered: false, selected: false, dropdown: [
+          {title: 'UFSJ', link: 'ufsj.php'},
+          {title: 'K-12 Portuguese', link: 'k12.php'},
+          {title: 'Internships', link: 'internships.php'}
+        ]},
+        {title: "Students", hovered: false, selected: false, dropdown: [
+          {title: 'Student Testimonials', link: 'testimonials.php'},
+          {title: '2019 Cohort', link: 'cohort2019.php'},
+          {title: 'Alumni 2018', link: 'alumni2018.php'},
+          {title: 'Alumni 2017', link: 'alumni2017.php'},
+          {title: 'Alumni 2016', link: 'alumni2016.php'},
+          {title: 'Alumni 2015', link: 'alumni2015.php'},
+          {title: 'Alumni 2014', link: 'alumni2014.php'},
+          {title: 'Alumni 2013', link: 'alumni2013.php'}
+        ]},
+        {title: "Apply", hovered: false, selected: false},
+        {title: "News & Events", hovered: false, selected: false},
+        {title: "Contact", hovered: false, selected: false}
+      ]
     },
-    function() {
-      $("ul", this).stop().slideUp(150);
-      if ($(this).data("Selected") === false) {
-        $("div.indicator", this).animate({width: "0%"}, 150);
+    methods: {
+      mouseenter: function (index) {
+        this.tabs[index].hovered = true
+        switch (index) {
+          case 1:
+          programDrop.style.opacity = 1
+          programDrop.style.height = programDropHeight
+          break
+          case 2:
+          partnerDrop.style.opacity = 1
+          partnerDrop.style.height = partnerDropHeight
+          break
+          case 3:
+          studentDrop.style.opacity = 1
+          studentDrop.style.height = studentDropHeight
+          break
+        }
+      },
+      mouseleave: function (index) {
+        this.tabs[index].hovered = false
+        switch (index) {
+          case 1:
+          programDrop.style.height = 0
+          break
+          case 2:
+          partnerDrop.style.height = 0
+          break
+          case 3:
+          studentDrop.style.height = 0
+          break
+        }
       }
     }
-  );
+  })
 
-  $(".nav li").click(
-    function() {
-      var $clickedIndicator = $("div.indicator", this);
-      $(".nav li").data("Selected", false);
-      $(this).data("Selected", true);
-      $(".nav li div.indicator").each(function() {
-        if (!$(this).is($clickedIndicator)) {
-          $(this).stop().animate({width: "0%"}, 150);
-        }
-      })
-      $clickedIndicator.stop().animate({width: "80%"}, 150);
+  // set selected page when page is first loaded
+  for (var i = 0; i < navigation.tabs.length; i++) {
+    if (pageName === navigation.tabs[i].title) {
+      navigation.tabs[i].selected = true
+      break
     }
-  );
+    else {
+      if (navigation.tabs[i].dropdown != undefined) {
+        for (var j = 0; j < navigation.tabs[i].dropdown.length; j++) {
+          if (pageName === navigation.tabs[i].dropdown[j].title) {
+            navigation.tabs[i].selected = true
+            break
+          }
+        }
+      }
+    }
+  }
+}
 
-  $(".nav li ul a li").hover(
-    function() {
-      $(this).stop(true).animate({backgroundColor: "#323232", color: "white"}, 150);
+/*
+* ===============================================
+* Home page functions
+* ===============================================
+*/
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function initSlider() {
+
+  var slider = new Vue({
+    el: ".slider",
+    data: {
+      loaded: false,
+      length: 0,
+      current: 0,
+      title: "Get on board the Flagship",
+      subtitle: "Do you want to study abroad and intern in Brazil? Click the image to watch our program video and see why you should be a part of the Portuguese Flagship program at UGA.",
+      img: "http://www.portflagship.org/wp-content/uploads/2018/12/pfpvideo.png",
+      titleNext: "Summer 2018 in Florianópolis",
+      subtitleNext: "UGA Flagship students enjoying an excursion to Santo Antônio de Lisboa while studying abroad in Florianópolis.",
+      imgNext: "http://www.portflagship.org/wp-content/uploads/2018/06/Joaquina-Dunas-1.jpeg",
+      enterUp: false,
+      enterDown: false,
+      exitUp: false,
+      exitDown: false,
+      enterNext: false,
+      json: undefined,
+      repeat: undefined
     },
-    function() {
-      $(this).animate({backgroundColor: "#e3e3e3", color: "#222"}, 150);
-    }
-  );
+    methods: {
+      goToImg: function(type, index) {
+        if (type === 0) {
+          // left arrow was clicked
+          this.enterNext = !this.enterNext
+          this.exitUp = false
+          this.enterUp = false
+          this.exitDown = false
+          this.enterDown = false
+          //window.clearInterval(this.repeat)
+          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
 
-  $(".nav li ul a li").click(
-    function() {
-      var $parent = $(this).parent().parent().parent();
-      var $clickedIndicator = $("div.indicator", $parent);
-      $(".nav li").data("Selected", false);
-      $parent.data("Selected", true);
-      $(".nav li div.indicator").each(function() {
-        if (!$(this).is($clickedIndicator)) {
-          $(this).stop().animate({width: "0%"}, 150);
+          if (this.current - 1 >= 0) {
+            this.current = this.current - 1
+          }
+          else {
+            this.current = this.length - 1
+          }
+
+          if (!this.enterNext) {
+            this.title = this.json[this.current].title
+            this.subtitle = this.json[this.current].subtitle
+            this.img = this.json[this.current].imageURL
+          }
+          else {
+            this.titleNext = this.json[this.current].title
+            this.subtitleNext = this.json[this.current].subtitle
+            this.imgNext = this.json[this.current].imageURL
+          }
+
+          this.exitDown = true
+          this.enterDown = true
         }
-      })
-      $clickedIndicator.stop().animate({width: "80%"}, 150);
+        else if (type === 1) {
+          // right arrow was clicked
+          this.enterNext = !this.enterNext
+          this.exitUp = false
+          this.enterUp = false
+          this.exitDown = false
+          this.enterDown = false
+          //window.clearInterval(this.repeat)
+          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+
+          if (this.current + 1 < this.length) {
+            this.current = this.current + 1
+          }
+          else {
+            this.current = 0
+          }
+
+          if (!this.enterNext) {
+            this.title = this.json[this.current].title
+            this.subtitle = this.json[this.current].subtitle
+            this.img = this.json[this.current].imageURL
+          }
+          else {
+            this.titleNext = this.json[this.current].title
+            this.subtitleNext = this.json[this.current].subtitle
+            this.imgNext = this.json[this.current].imageURL
+          }
+
+          this.exitUp = true
+          this.enterUp = true
+        }
+        else if (type === 2) {
+          // indicator item was clicked
+          //window.clearInterval(this.repeat)
+          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+
+          if (index - 1 > this.current) {
+            this.exitDown = true
+          }
+          else if (index - 1 < this.current) {
+            this.exitUp = true
+          }
+          this.current = index - 1
+        }
+        else if (type === 3) {
+          // automated switch
+          if (this.current + 1 < this.length) {
+            this.current = this.current + 1
+          }
+          else {
+            this.current = 0
+          }
+          this.exitUp = true
+        }
+      }
     }
-  );
+  })
+
+  var request = new XMLHttpRequest()
+  request.open('GET', 'https://api.jsonbin.io/b/5c120111f35b3d1274b7f680/1', true)
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+
+      // parse JSON file
+      var data = JSON.parse(request.responseText)
+
+      // get JSON child count
+      var length = Object.keys(data).length
+      slider.length = length
+
+      // animate slider
+      if (length > 0) {
+        slider.json = data
+        slider.title = data[0].title
+        slider.subtitle = data[0].subtitle
+        slider.img = data[0].imageURL
+        slider.titleNext = data[1].title
+        slider.subtitleNext = data[1].subtitle
+        slider.imgNext = data[1].imageURL
+        slider.loaded = true
+        slider.enterUp = true
+        //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+      }
+    }
+    else {
+      // We reached our target server, but it returned an error
+      // TODO: nothing
+    }
+  }
+
+  request.onerror = function() {
+    // There was a connection error of some sort
+    // TODO: nothing
+  }
+
+  request.send()
+}
+
+function initStudentSlider() {
+
+  var request = new XMLHttpRequest()
+  request.open('GET', 'https://api.jsonbin.io/b/5c140b3327794d69b3d88536/1', true)
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+
+      // parse JSON file
+      var data = JSON.parse(request.responseText)
+
+      // get JSON child count
+      var length = Object.keys(data).length
+
+      // initialize slider
+      if (length > 0) {
+        document.getElementById("studentLoading").style.opacity = 0;
+
+        var random = new Array(length)
+        for (var i = 0; i < length; i++) {
+          random[i] = i
+        }
+        shuffleArray(random)
+        var flex = document.getElementById("headshot-flex")
+        var headshot = document.getElementById("headshot-container")
+
+        for (var i = 0; i < length; i++) {
+          var currData = data[random[i]]
+          var clone = headshot.cloneNode(true)
+          clone.childNodes[1].childNodes[1].src = currData.imageURL
+          clone.childNodes[3].textContent = currData.name
+          clone.childNodes[5].textContent = currData.major
+          clone.style.transition = "opacity 300ms ease"
+          flex.appendChild(clone)
+        }
+
+        flex.removeChild(headshot)
+
+        window.setTimeout(function() {
+          flex.childNodes.forEach(function(currentValue) {
+            if (currentValue.style !== undefined) {
+              currentValue.style.opacity = 1
+            }
+          })
+        }, 150)
+      }
+    }
+    else {
+      // We reached our target server, but it returned an error
+      // TODO: nothing
+    }
+  }
+
+  request.onerror = function() {
+    // There was a connection error of some sort
+    // TODO: nothing
+  }
+
+  request.send()
+}
+
+/*
+* ===============================================
+* Image Slider functions
+* ===============================================
+*/
+
+function initImgSlider() {
+
+  // imgSlider Vue component
+  var imgSlider = new Vue({
+    el: ".imgSlider",
+    data: {
+      loaded: false,
+      length: 0,
+      current: 0,
+      hovered: false,
+      animate: false,
+      title: "Niterói Contemporary Art Museum",
+      subtitle: "Niterói, Rio de Janeiro, Brazil",
+      img: "http://www.portflagship.org/wp-content/uploads/2018/11/museu_de_arte_contemporanea.png",
+      exitLeft: false,
+      exitRight: false,
+      json: undefined,
+      repeat: undefined
+    },
+    methods: {
+      mouseenter: function () {
+        this.hovered = true
+      },
+      mouseleave: function () {
+        this.hovered = false
+      },
+      goToImg: function(type, index) {
+        if (type === 0) {
+          // left arrow was clicked
+          window.clearInterval(this.repeat)
+          imgSlider.repeat = window.setInterval(function() { imgSlider.goToImg(3, 0) }, 10000)
+
+          if (this.current - 1 >= 0) {
+            this.current = this.current - 1
+          }
+          else {
+            this.current = this.length - 1
+          }
+          this.exitRight = true
+        }
+        else if (type === 1) {
+          // right arrow was clicked
+          window.clearInterval(this.repeat)
+          imgSlider.repeat = window.setInterval(function() { imgSlider.goToImg(3, 0) }, 10000)
+
+          if (this.current + 1 < this.length) {
+            this.current = this.current + 1
+          }
+          else {
+            this.current = 0
+          }
+          this.exitLeft = true
+        }
+        else if (type === 2) {
+          // indicator item was clicked
+          window.clearInterval(this.repeat)
+          imgSlider.repeat = window.setInterval(function() { imgSlider.goToImg(3, 0) }, 10000)
+
+          if (index - 1 > this.current) {
+            this.exitLeft = true
+          }
+          else if (index - 1 < this.current) {
+            this.exitRight = true
+          }
+          this.current = index - 1
+        }
+        else if (type === 3) {
+          // automated switch
+          if (this.current + 1 < this.length) {
+            this.current = this.current + 1
+          }
+          else {
+            this.current = 0
+          }
+          this.exitLeft = true
+        }
+      }
+    }
+  })
+
+  // add animationEndEvent to imgSliderItem
+  var imgSliderItem = document.getElementById('imgSliderItem')
+  imgSliderItem.addEventListener(animationEnd, function(event) {
+    if (event.target === imgSliderItem) {
+      imgSlider.animate = false
+      imgSlider.exitLeft = false
+      imgSlider.exitRight = false
+      imgSlider.title = imgSlider.json[imgSlider.current].title
+      imgSlider.subtitle = imgSlider.json[imgSlider.current].subtitle
+      imgSlider.img = imgSlider.json[imgSlider.current].imageURL
+      window.setTimeout(function() {
+        imgSlider.animate = true
+      }, 1)
+    }
+  })
+
+  var request = new XMLHttpRequest()
+  request.open('GET', 'https://api.jsonbin.io/b/5bf69ee7746e9b593ec17162/3', true)
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+
+      // parse JSON file
+      var data = JSON.parse(request.responseText)
+
+      // get JSON child count
+      var length = Object.keys(data).length
+      imgSlider.length = length
+
+      // animate imgSlider
+      if (length > 0) {
+        imgSlider.json = data
+        imgSlider.loaded = true
+        imgSlider.animate = true
+        imgSlider.repeat = window.setInterval(function() { imgSlider.goToImg(3, 0) }, 10000)
+      }
+    }
+    else {
+      // We reached our target server, but it returned an error
+      // TODO: nothing
+    }
+  }
+
+  request.onerror = function() {
+    // There was a connection error of some sort
+    // TODO: nothing
+  }
+
+  request.send()
+}
+
+/*
+* ===============================================
+* UFSJ functions
+* ===============================================
+*/
+
+function initUfsjMore() {
+  window.addEventListener("resize", initUfsjMore)
+  var expand = document.getElementById("expand")
+  var clone = expand.cloneNode(true)
+  clone.style.height = "auto"
+  clone.style.opacity = 0
+  clone.style.position = "absolute"
+  expand.parentElement.appendChild(clone)
+  window.ufsjMoreHeight = window.getComputedStyle(clone).height
+  expand.parentElement.removeChild(clone)
+  expand.style.height = "0px"
+}
+
+function ufsjMore() {
+  var expand = document.getElementById("expand")
+  var more = document.getElementById("more")
+  var arrow = document.getElementById("more-arrow")
+  if (expand.style.height === "0px") {
+    expand.style.height = ufsjMoreHeight
+    more.textContent = "Less"
+    arrow.setAttribute("style", "transform: rotate(180deg)")
+  }
+  else {
+    expand.style.height = "0px"
+    more.textContent = "More"
+    arrow.setAttribute("style", "transform: rotate(0deg)")
+  }
+}
+
+/*
+* ===============================================
+* Contact Form functions
+* ===============================================
+*/
+
+function validateContactForm() {
+  if (grecaptcha.getResponse() === "") {
+    alert("Please complete the reCAPTCHA")
+    return false
+  }
+  return true
 }
 
 /*
@@ -451,29 +647,25 @@ function initNav(pageName) {
 */
 
 function loadJS(url, code) {
-  var script = document.createElement('script');
-  document.head.appendChild(script);
-  script.onload = code;
-  script.onreadystatechange = code;
-  script.src = url;
+  var script = document.createElement('script')
+  document.head.appendChild(script)
+  script.onload = code
+  script.onreadystatechange = code
+  script.src = url
 }
 
-function initFooter() {
-  $map = $("#map");
-  $enable = $("#enable");
-  $enable.click(function() {
-    $enable.hide();
-    loadJS("https://maps.googleapis.com/maps/api/js?key=AIzaSyBmLRdxEqN-OH4gufW70pwXNiDmi9eMkps", initMap);
-  });
+function onClickEnable() {
+  document.getElementById('enable').style.display = 'none'
+  loadJS("https://maps.googleapis.com/maps/api/js?key=AIzaSyBmLRdxEqN-OH4gufW70pwXNiDmi9eMkps", initMap)
 }
 
 function initMap() {
-  var loc = {lat: 33.9556157, lng: -83.3804178};
+  var loc = {lat: 33.9556157, lng: -83.3804178}
 
   var map = new google.maps.Map(document.getElementById('map'), {
     center: loc,
     zoom: 15
-  });
+  })
 
-  var marker = new google.maps.Marker({position: loc, map: map});
+  var marker = new google.maps.Marker({position: loc, map: map})
 }
