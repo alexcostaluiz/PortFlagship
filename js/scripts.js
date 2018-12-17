@@ -66,6 +66,40 @@ function whichEndTransitionEvent() {
   }
 }
 
+function playVideo() {
+
+  var popupVideo = document.createElement("iframe")
+  popupVideo.src = "https://player.vimeo.com/video/18799809?autoplay=1"
+  popupVideo.classList.add("popupVideo")
+  popupVideo.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  popupVideo.width = "0px"
+  popupVideo.height = "0px"
+  popupVideo.setAttribute("allowfullscreen", "")
+  popupVideo.setAttribute("webkitallowfullscreen", "")
+  popupVideo.setAttribute("frameborder", "0")
+
+  // create background element to close video
+  var background = document.createElement("div")
+  background.classList.add("popupBackground")
+  background.onclick = function() {
+    document.body.removeChild(popupVideo)
+    document.body.removeChild(background)
+  }
+
+  // add elements to document
+  document.body.appendChild(background)
+  document.body.appendChild(popupVideo)
+
+  // animate video
+  window.setTimeout(function() {
+    popupVideo.width = "66%"
+    popupVideo.height = "66%"
+    popupVideo.style.opacity = 1
+    background.style.opacity = 0.5
+  }, 10)
+
+}
+
 /*
 * ===============================================
 * Document initialization function
@@ -125,6 +159,7 @@ window.addEventListener('load', function() {
     initStudentSlider()
   }
   if (pageName === "Why Portuguese?") { initImgSlider() }
+  if (pageName === "Study Abroad") { initImmersionMore() }
   if (pageName === "UFSJ") { initUfsjMore() }
 })
 
@@ -250,9 +285,11 @@ function initSlider() {
       title: "Get on board the Flagship",
       subtitle: "Do you want to study abroad and intern in Brazil? Click the image to watch our program video and see why you should be a part of the Portuguese Flagship program at UGA.",
       img: "http://www.portflagship.org/wp-content/uploads/2018/12/pfpvideo.png",
+      link: "https://www.youtube.com/embed/FDUsdByHRf4",
       titleNext: "Summer 2018 in Florianópolis",
       subtitleNext: "UGA Flagship students enjoying an excursion to Santo Antônio de Lisboa while studying abroad in Florianópolis.",
       imgNext: "http://www.portflagship.org/wp-content/uploads/2018/06/Joaquina-Dunas-1.jpeg",
+      linkNext: undefined,
       enterUp: false,
       enterDown: false,
       exitUp: false,
@@ -270,8 +307,8 @@ function initSlider() {
           this.enterUp = false
           this.exitDown = false
           this.enterDown = false
-          //window.clearInterval(this.repeat)
-          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+          window.clearInterval(this.repeat)
+          slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 10000)
 
           if (this.current - 1 >= 0) {
             this.current = this.current - 1
@@ -284,11 +321,13 @@ function initSlider() {
             this.title = this.json[this.current].title
             this.subtitle = this.json[this.current].subtitle
             this.img = this.json[this.current].imageURL
+            this.link = this.json[this.current].link
           }
           else {
             this.titleNext = this.json[this.current].title
             this.subtitleNext = this.json[this.current].subtitle
             this.imgNext = this.json[this.current].imageURL
+            this.linkNext = this.json[this.current].link
           }
 
           this.exitDown = true
@@ -301,8 +340,8 @@ function initSlider() {
           this.enterUp = false
           this.exitDown = false
           this.enterDown = false
-          //window.clearInterval(this.repeat)
-          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+          window.clearInterval(this.repeat)
+          slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 10000)
 
           if (this.current + 1 < this.length) {
             this.current = this.current + 1
@@ -315,11 +354,13 @@ function initSlider() {
             this.title = this.json[this.current].title
             this.subtitle = this.json[this.current].subtitle
             this.img = this.json[this.current].imageURL
+            this.link = this.json[this.current].link
           }
           else {
             this.titleNext = this.json[this.current].title
             this.subtitleNext = this.json[this.current].subtitle
             this.imgNext = this.json[this.current].imageURL
+            this.linkNext = this.json[this.current].link
           }
 
           this.exitUp = true
@@ -327,33 +368,136 @@ function initSlider() {
         }
         else if (type === 2) {
           // indicator item was clicked
-          //window.clearInterval(this.repeat)
-          //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+          this.enterNext = !this.enterNext
+          this.exitUp = false
+          this.enterUp = false
+          this.exitDown = false
+          this.enterDown = false
+          window.clearInterval(this.repeat)
+          slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 10000)
 
           if (index - 1 > this.current) {
-            this.exitDown = true
+            this.exitUp = true
+            this.enterUp = true
           }
           else if (index - 1 < this.current) {
-            this.exitUp = true
+            this.exitDown = true
+            this.enterDown = true
           }
+
           this.current = index - 1
+
+          if (!this.enterNext) {
+            this.title = this.json[this.current].title
+            this.subtitle = this.json[this.current].subtitle
+            this.img = this.json[this.current].imageURL
+            this.link = this.json[this.current].link
+          }
+          else {
+            this.titleNext = this.json[this.current].title
+            this.subtitleNext = this.json[this.current].subtitle
+            this.imgNext = this.json[this.current].imageURL
+            this.linkNext = this.json[this.current].link
+          }
         }
         else if (type === 3) {
           // automated switch
+          this.enterNext = !this.enterNext
+          this.exitUp = false
+          this.enterUp = false
+          this.exitDown = false
+          this.enterDown = false
+
           if (this.current + 1 < this.length) {
             this.current = this.current + 1
           }
           else {
             this.current = 0
           }
+
+          if (!this.enterNext) {
+            this.title = this.json[this.current].title
+            this.subtitle = this.json[this.current].subtitle
+            this.img = this.json[this.current].imageURL
+            this.link = this.json[this.current].link
+          }
+          else {
+            this.titleNext = this.json[this.current].title
+            this.subtitleNext = this.json[this.current].subtitle
+            this.imgNext = this.json[this.current].imageURL
+            this.linkNext = this.json[this.current].link
+          }
+
           this.exitUp = true
+          this.enterUp = true
+        }
+      },
+      goToLink: function() {
+
+        var link = undefined
+
+        if (!this.enterNext) {
+          link = this.link
+        }
+        else {
+          link = this.linkNext
+        }
+
+        if (link === undefined) {
+          // no link
+        }
+        else if (link.indexOf("youtube") !== -1 || link.indexOf("mp4") !== -1) {
+          // popup video
+          window.clearInterval(this.repeat)
+
+          // create video element
+          var popupVideo = document.createElement("iframe")
+          popupVideo.src = link + "?autoplay=1"
+          popupVideo.classList.add("popupVideo")
+          popupVideo.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          popupVideo.width = "0px"
+          popupVideo.height = "0px"
+          popupVideo.setAttribute("allowfullscreen", "")
+          popupVideo.setAttribute("webkitallowfullscreen", "")
+          popupVideo.setAttribute("frameborder", "0")
+
+          // create background element to close video
+          var background = document.createElement("div")
+          background.classList.add("popupBackground")
+          background.onclick = function() {
+            document.body.removeChild(popupVideo)
+            document.body.removeChild(background)
+            slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 10000)
+          }
+
+          // add elements to document
+          document.body.appendChild(background)
+          document.body.appendChild(popupVideo)
+
+          // animate video
+          window.setTimeout(function() {
+            popupVideo.width = "66%"
+            popupVideo.height = "66%"
+            popupVideo.style.opacity = 1
+            background.style.opacity = 0.5
+          }, 10)
+
+        }
+        else {
+          // external link
+          if (link === "internships.php") {
+            window.location.href = link
+          }
+          else {
+            window.open(link, "_blank")
+          }
         }
       }
     }
   })
 
   var request = new XMLHttpRequest()
-  request.open('GET', 'https://api.jsonbin.io/b/5c120111f35b3d1274b7f680/1', true)
+  request.open('GET', 'https://api.jsonbin.io/b/5c120111f35b3d1274b7f680/4', true)
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
@@ -376,7 +520,7 @@ function initSlider() {
         slider.imgNext = data[1].imageURL
         slider.loaded = true
         slider.enterUp = true
-        //slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 20000)
+        slider.repeat = window.setInterval(function() { slider.goToImg(3, 0) }, 10000)
       }
     }
     else {
@@ -409,7 +553,7 @@ function initStudentSlider() {
 
       // initialize slider
       if (length > 0) {
-        document.getElementById("studentLoading").style.opacity = 0;
+        document.getElementById("studentLoading").style.opacity = 0
 
         var random = new Array(length)
         for (var i = 0; i < length; i++) {
@@ -589,6 +733,66 @@ function initImgSlider() {
   }
 
   request.send()
+}
+
+/*
+* ===============================================
+* STudy Abroad functions
+* ===============================================
+*/
+
+function initImmersionMore() {
+  window.addEventListener("resize", initImmersionMore)
+
+  var isa = document.getElementById("isa")
+  var isaClone = isa.cloneNode(true)
+  isaClone.style.height = "auto"
+  isaClone.style.opacity = 0
+  isa.parentElement.appendChild(isaClone)
+  window.isaHeight = window.getComputedStyle(isaClone).height
+  isa.parentElement.removeChild(isaClone)
+  isa.style.height = "0px"
+
+  var middlebury = document.getElementById("middlebury")
+  var middleburyClone = middlebury.cloneNode(true)
+  middleburyClone.style.height = "auto"
+  middleburyClone.style.opacity = 0
+  middlebury.parentElement.appendChild(middleburyClone)
+  window.middleburyHeight = window.getComputedStyle(middleburyClone).height
+  middlebury.parentElement.removeChild(middleburyClone)
+  middlebury.style.height = "0px"
+
+  document.getElementById("isaArrow").style.transform = "translateY(-50%) rotate(0deg)"
+  document.getElementById("middleburyArrow").style.transform = "translateY(-50%) rotate(0deg)"
+}
+
+function immersionMore(id) {
+  if (id === "isa") {
+    var isaArrow = document.getElementById("isaArrow")
+    var rotation = parseInt(isaArrow.style.transform.substr(24))
+    var isa = document.getElementById("isa")
+    if (isa.style.height === "0px") {
+      isaArrow.style.transform = "translateY(-50%) rotate(" + (540 + rotation) + "deg)"
+      isa.style.height = isaHeight
+    }
+    else {
+      isaArrow.style.transform = "translateY(-50%) rotate(" + (540 + rotation) + "deg)"
+      isa.style.height = "0px"
+    }
+  }
+  else if (id === "middlebury") {
+    var middleburyArrow = document.getElementById("middleburyArrow")
+    var rotation = parseInt(middleburyArrow.style.transform.substr(24))
+    var middlebury = document.getElementById("middlebury")
+    if (middlebury.style.height === "0px") {
+      middleburyArrow.style.transform = "translateY(-50%) rotate(" + (540 + rotation) + "deg)"
+      middlebury.style.height = middleburyHeight
+    }
+    else {
+      middleburyArrow.style.transform = "translateY(-50%) rotate(" + (540 + rotation) + "deg)"
+      middlebury.style.height = "0px"
+    }
+  }
 }
 
 /*

@@ -11,9 +11,9 @@
     <div class="eight columns">
       <div class="imgSlider" @mouseover="mouseenter" @mouseout="mouseleave" style="justify-content: space-between">
         <div class="loading" :class="{ohide: loaded}">
-          <div id="one"></div>
-          <div id="two"></div>
-          <div id="three"></div>
+          <div class="loading-item one"></div>
+          <div class="loading-item two"></div>
+          <div class="loading-item three"></div>
         </div>
         <img class="slider-arrow aleft" :class="{'aleft-animate': hovered, oshow: hovered}" @click="goToImg(0, 0)" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
         <div class="imgSliderItem" :class="{imgSliderItemAnimLeft: exitLeft, imgSliderItemAnimRight: exitRight}" id="imgSliderItem">

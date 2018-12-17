@@ -3,22 +3,26 @@
 
 <!-- Slider container -->
 <div class="slider">
-  <div class="sliderImg" :class="{oshow: loaded && !enterNext, sliderImgEnterUp: enterUp && !enterNext, sliderImgEnterDown: enterDown && !enterNext, sliderImgExitUp: exitUp && enterNext, sliderImgExitDown: exitDown && enterNext}" :style="{backgroundImage: 'url(' + img + ')'}"></div>
-  <div class="sliderItem">
-    <span class="sliderTitle clearboth" :class="{oshow: loaded && !enterNext, sliderTextEnterUp: enterUp && !enterNext, sliderTextEnterDown: enterDown && !enterNext, sliderTextExitUp: exitUp && enterNext, sliderTextExitDown: exitDown && enterNext}">{{ title }}</span>
-    <span class="sliderSubtitle clearboth" :class="{oshow: loaded && !enterNext, sliderTextEnterUp: enterUp && !enterNext, sliderTextEnterDown: enterDown && !enterNext, sliderTextExitUp: exitUp && enterNext, sliderTextExitDown: exitDown && enterNext}">{{ subtitle }}</span>
+  <div class="slider-background"></div>
+  <div class="sliderImg" :class="{oshow: loaded && !enterNext, sliderImgEnterUp: enterUp && !enterNext, sliderImgEnterDown: enterDown && !enterNext, sliderImgExitUp: exitUp && enterNext, sliderImgExitDown: exitDown && enterNext, cursorDefault: link === undefined || enterNext, over: !enterNext}" @click="goToLink()" :style="{backgroundImage: 'url(' + img + ')'}"></div>
+  <div class="sliderItem" @click="goToLink()" :class="{cursorDefault: link === undefined || enterNext, over: !enterNext}">
+    <span class="sliderTitle clearboth" :class="{oshow: loaded && !enterNext, sliderTextEnterUp: enterUp && !enterNext, sliderTextEnterDown: enterDown && !enterNext, sliderTextExitUp: exitUp && enterNext, sliderTextExitDown: exitDown && enterNext, cursorDefault: link === undefined || enterNext}">{{ title }}</span>
+    <span class="sliderSubtitle clearboth" :class="{oshow: loaded && !enterNext, sliderTextEnterUp: enterUp && !enterNext, sliderTextEnterDown: enterDown && !enterNext, sliderTextExitUp: exitUp && enterNext, sliderTextExitDown: exitDown && enterNext, cursorDefault: link === undefined || enterNext}">{{ subtitle }}</span>
   </div>
-  <div class="sliderImg" :class="{oshow: loaded && enterNext, sliderImgEnterUp: enterUp && enterNext, sliderImgEnterDown: enterDown && enterNext, sliderImgExitUp: exitUp && !enterNext, sliderImgExitDown: exitDown && !enterNext}" :style="{backgroundImage: 'url(' + imgNext + ')'}"></div>
-  <div class="sliderItem">
-    <span class="sliderTitle clearboth" :class="{oshow: loaded && enterNext, sliderTextEnterUp: enterUp && enterNext, sliderTextEnterDown: enterDown && enterNext, sliderTextExitUp: exitUp && !enterNext, sliderTextExitDown: exitDown && !enterNext}">{{ titleNext }}</span>
-    <span class="sliderSubtitle clearboth" :class="{oshow: loaded && enterNext, sliderTextEnterUp: enterUp && enterNext, sliderTextEnterDown: enterDown && enterNext, sliderTextExitUp: exitUp && !enterNext, sliderTextExitDown: exitDown && !enterNext}">{{ subtitleNext }}</span>
+  <div class="sliderImg" :class="{oshow: loaded && enterNext, sliderImgEnterUp: enterUp && enterNext, sliderImgEnterDown: enterDown && enterNext, sliderImgExitUp: exitUp && !enterNext, sliderImgExitDown: exitDown && !enterNext, cursorDefault: linkNext === undefined || !enterNext, over: enterNext}" @click="goToLink()" :style="{backgroundImage: 'url(' + imgNext + ')'}"></div>
+  <div class="sliderItem" @click="goToLink()" :class="{cursorDefault: linkNext === undefined || !enterNext, over: enterNext}">
+    <span class="sliderTitle clearboth" :class="{oshow: loaded && enterNext, sliderTextEnterUp: enterUp && enterNext, sliderTextEnterDown: enterDown && enterNext, sliderTextExitUp: exitUp && !enterNext, sliderTextExitDown: exitDown && !enterNext, cursorDefault: linkNext === undefined || !enterNext}">{{ titleNext }}</span>
+    <span class="sliderSubtitle clearboth" :class="{oshow: loaded && enterNext, sliderTextEnterUp: enterUp && enterNext, sliderTextEnterDown: enterDown && enterNext, sliderTextExitUp: exitUp && !enterNext, sliderTextExitDown: exitDown && !enterNext, cursorDefault: linkNext === undefined || !enterNext}">{{ subtitleNext }}</span>
   </div>
-  <div class="sliderArrow sliderArrowLeft" @click="goToImg(0, 0)"></div>
-  <div class="sliderArrow sliderArrowRight" @click="goToImg(1, 0)"></div>
+  <div class="sliderArrow sliderArrowLeft" :class="{sliderArrowLeftLoaded: loaded}" @click="goToImg(0, 0)"></div>
+  <div class="sliderArrow sliderArrowRight" :class="{sliderArrowRightLoaded: loaded}" @click="goToImg(1, 0)"></div>
+  <div class="sliderIndicator" :class="{sliderIndicatorLoaded: loaded}">
+    <div class="sliderIndicatorItem" v-for="index in length" :key="index" :class="{sliderIndicatorItemSelected: ((index - 1) === current)}"  @click="goToImg(2, index)"></div>
+  </div>
   <div class="loading" :class="{ohide: loaded}">
-    <div id="one"></div>
-    <div id="two"></div>
-    <div id="three"></div>
+    <div class="loading-item one"></div>
+    <div class="loading-item two"></div>
+    <div class="loading-item three"></div>
   </div>
 </div>
 
@@ -64,7 +68,10 @@
     <span class="content-subtitle clearboth">Language Flagship</span>
   </div>
   <div class="row-flex top16">
-    <img src="http://www.portflagship.org/wp-content/uploads/2012/10/playtfl.png" height="250px" alt="">
+    <div class="video-container" onclick="playVideo()">
+      <img class="video-play-icon" src="http://www.portflagship.org/wp-content/uploads/2018/12/icons8-play-100.png" alt="">
+      <img class="video-thumbnail" src="http://www.portflagship.org/wp-content/uploads/2018/12/language-flagship-e1544940292274.png" height="200px" alt="">
+    </div>
   </div>
   <div class="row-flex pad32">
     <div class="six columns">
@@ -95,9 +102,9 @@
   <div class="row-flex pad32">
     <div class="seven columns" style="position: relative">
       <div id="studentLoading" class="loading">
-        <div id="one"></div>
-        <div id="two"></div>
-        <div id="three"></div>
+        <div class="loading-item one"></div>
+        <div class="loading-item two"></div>
+        <div class="loading-item three"></div>
       </div>
       <div style="overflow: hidden">
         <div id="headshot-flex" class="headshot-flex" style="flex-wrap: nowrap; overflow-x: scroll; margin-bottom: -50px; padding-bottom: 50px">

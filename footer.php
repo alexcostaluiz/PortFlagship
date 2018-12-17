@@ -1,8 +1,10 @@
 <!-- Any Questions container -->
 <div class="container super-dark-grey">
-  <div class="row-flex pad48">
-    <span class="content-header text-white">Have any questions?</span>
-    <a href="contact.php"><div class="content-button" style="margin-left: 32px">ASK US</div></a>
+  <div class="questions-background">
+    <div class="row-flex pad48">
+      <span class="content-header text-white">Have any questions?</span>
+      <a href="contact.php"><div class="content-button" style="margin-left: 32px">ASK US</div></a>
+    </div>
   </div>
 </div>
 
@@ -35,8 +37,8 @@
     </div>
     <div class="four columns">
       <span class="footer-title clearboth">Connect</span>
-      <a href="https://www.youtube.com/channel/UCOjfqQga3mFQwGDgF22SmgQ"><img style="height: 50px; margin-right: 16px" src="http://www.portflagship.org/wp-content/uploads/2018/11/youtube-1.png" alt=""></a>
-      <a href="http://www.facebook.com/pages/Portuguese-Flagship-Program-at-the-University-of-Georgia/110593692402273"><img style="height: 50px" src="http://www.portflagship.org/wp-content/uploads/2018/11/facebook-1.png" alt=""></a>
+      <a target="_blank" href="https://www.youtube.com/channel/UCOjfqQga3mFQwGDgF22SmgQ"><img style="height: 50px; margin-right: 16px" src="http://www.portflagship.org/wp-content/uploads/2018/11/youtube-1.png" alt=""></a>
+      <a target="_blank" href="http://www.facebook.com/pages/Portuguese-Flagship-Program-at-the-University-of-Georgia/110593692402273"><img style="height: 50px" src="http://www.portflagship.org/wp-content/uploads/2018/11/facebook-1.png" alt=""></a>
     </div>
   </div>
   <div class="row">

@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <title>Portuguese Flagship - <?php echo $pageTitle ?></title>
   <link rel="icon" href="http://www.portflagship.org/wp-content/uploads/2012/10/logomark1.png">
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.color-2.1.2.min.js"></script>
   <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
   <script type="text/javascript" src="js/vue.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
