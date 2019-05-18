@@ -1,11 +1,17 @@
 <!-- Contact content container -->
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64 padNoBottom bottom32">
     <span class="content-title clearboth">Contact Us</span>
   </div>
-  <div class="divider bottom32"></div>
-  <div class="row-flex bottom32">
-    <div class="four columns">
+  <div class="divider-container bottom64">
+    <span class="section">§</span>
+    <div class="divider"></div>
+    <span class="section mirror">§</span>
+  </div>
+  <div class="extra"></div>
+  <div class="row-flex bottom64">
+    <div class="five columns">
       <div class="content-text-container padNone">
         <span class="content-paragraph">
           If you are interested in knowing more about the Portuguese Flagship Program, contact us below!
@@ -15,8 +21,9 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
   <div class="row-flex">
-    <div class="four columns" style="text-align: center">
+    <div class="five columns" style="text-align: center">
       <form id="contact-form" class="bottom64" style="position: relative" method="post" onsubmit="return validateContactForm()">
         <div class="contact-input-container">
           <span class="contact-header clearboth left">Name</span>
@@ -42,4 +49,6 @@
       </form>
     </div>
   </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
 </div>

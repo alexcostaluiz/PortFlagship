@@ -24,7 +24,7 @@ span {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  border: 5px solid #323232;
+  border: 5px solid #222222;
   background: black;
   opacity: 0;
   transition: height 200ms ease, width 200ms ease, opacity 200ms ease;
@@ -43,6 +43,7 @@ span {
   background: #fff;
   opacity: 0;
   z-index: 5;
+  cursor: pointer;
   transition: opacity 300ms ease;
   -webkit-transition: opacity 300ms ease;
   -moz-transition: opacity 300ms ease;
@@ -67,10 +68,102 @@ span {
   z-index: 4;
 }
 
+.menu {
+  position: absolute;
+  display: none;
+  margin-left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-placeholder {
+  display: none;
+  opacity: 0;
+  padding-top: 16px;
+}
+
+.drawer {
+  display: none;
+  height: 100%;
+  width: 80%;
+  max-width: 400px;
+  background-color: #e3e3e3;
+  border: 1px solid #d3d3d3;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  transform: translateX(-100%);
+  transition: transform 300ms ease;
+  -webkit-transition: transform 300ms ease;
+  -moz-transition: transform 300ms ease;
+  -ms-transition: transform 300ms ease;
+  -o-transition: transform 300ms ease;
+}
+
+.drawer ul {
+  margin: 0px;
+}
+
+.drawer ul ul {
+  overflow: hidden;
+  transition: height 150ms ease;
+  -webkit-transition: height 150ms ease;
+  -moz-transition: height 150ms ease;
+  -ms-transition: height 150ms ease;
+  -o-transition: height 150ms ease;
+}
+
+.drawer a {
+  text-decoration: none;
+}
+
+.drawer ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px 32px 16px 16px;
+  margin: 0px;
+  text-align: left;
+  list-style: none;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.drawer ul li img:first-child {
+  margin-right: 32px;
+}
+
+.drawer ul li img:last-child {
+  margin-left: 8px;
+}
+
+.drawer ul li span {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: #222;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.drawer ul ul li {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 60px;
+  color: #222;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .nav li {
   display: inline-block;
   position: relative;
-  margin: 24px 24px 19px 24px;
+  margin: 20px;
   list-style: none;
   cursor: pointer;
   line-height: 1;
@@ -86,7 +179,7 @@ span {
 }
 
 .nav li div {
-  height: 3px;
+  height: 2px;
   width: 0%;
   background-color: #222;
   margin: 0 auto;
@@ -99,17 +192,28 @@ span {
   -o-transition: width 150ms ease;
 }
 
+.shifted {
+  transform: translateX(-12px);
+}
+
 .extended {
   width: 80% !important;
+}
+
+.extended-small {
+  width: calc(80% - 24px) !important;
 }
 
 .extended-perm {
   width: 80% !important;
 }
 
+.extended-perm-small {
+  width: calc(80% - 24px) !important;
+}
+
 .nav li img {
-  max-height: 7px;
-  margin-bottom: 2px;
+  transform: translate(-3px, 6px);
 }
 
 .nav li ul {
@@ -120,7 +224,7 @@ span {
   overflow: hidden;
   left: 50%;
   border: .5px solid #d3d3d3;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateX(-12px);
   background-color: #e3e3e3;
   z-index: 0;
   opacity: 0;
@@ -162,6 +266,8 @@ span {
 .slider {
   height: 650px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   background-color: #323232;
   overflow: hidden;
@@ -171,20 +277,17 @@ span {
   height: 100%;
   width: 100%;
   position: absolute;
-  background-color: #323232;
-  background-image: url(http://www.portflagship.org/wp-content/uploads/2018/12/brazil.jpg);
-  background-blend-mode: multiply;
+  background-image: url(http://www.portflagship.org/wp-content/uploads/2018/12/brazil-dark.png);
   background-attachment: fixed;
   background-position: center;
-  filter: grayscale(100%);
 }
 
 .sliderIndicator {
   position: absolute;
-  right: -32px;
+  right: -4%;
   top: 0;
   height: 100%;
-  width: 20px;
+  width: 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -198,28 +301,28 @@ span {
 }
 
 .sliderIndicatorLoaded {
-  right: 32px;
+  right: 3%;
   opacity: 1;
 }
 
 .sliderIndicatorItem {
-  height: 8px;
-  width: 8px;
+  padding-top: 66%;
+  width: 66%;
   background-color: white;
   opacity: 0.25;
-  margin: 5px 0;
+  margin: 40% 0;
   border-radius: 50%;
   cursor: pointer;
-  transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -webkit-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -moz-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -ms-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -o-transition: width .5s ease, height .5s ease, opacity .5s ease;
+  transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -webkit-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -moz-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -ms-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -o-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
 }
 
 .sliderIndicatorItemSelected {
-  height: 12px;
-  width: 12px;
+  padding-top: 100%;
+  width: 100%;
   opacity: 1;
 }
 
@@ -227,9 +330,9 @@ span {
   text-align: left;
   position: absolute;
   max-width: 46%;
-  top: 50%;
   left: 8%;
-  transform: translateY(-50%);
+  bottom: 12%;
+  margin-bottom: 84px;
   cursor: pointer;
 }
 
@@ -243,6 +346,7 @@ span {
   margin-bottom: 32px;
   opacity: 0;
   cursor: pointer;
+  text-shadow: 3px 3px #323232;
 }
 
 .sliderSubtitle {
@@ -342,11 +446,34 @@ span {
   bottom: 10%;
   left: 36%;
   cursor: pointer;
-  background-color: #323232;
+  opacity: 0;
+  background-color: #e3e3e3;
   background-image: url(http://www.portflagship.org/wp-content/themes/striking/includes/timthumb.php?src=/wp-content/uploads/2018/06/Joaquina-Dunas-1.jpeg&h=440&w=660&zc=1);
   background-position: center;
   background-size: cover;
-  opacity: 0;
+  background-blend-mode: multiply;
+}
+
+.sliderDuration {
+  position: absolute;
+  bottom: 1.5%;
+  right: 1%;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+  letter-spacing: 1px;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: #323232;
+}
+
+.sliderPlay {
+  width: 64px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes enterUpSliderImg {
@@ -435,7 +562,7 @@ span {
   cursor: pointer;
   opacity: 0;
   z-index: 3;
-  transform: translateX(-64px);
+  transform: translateX(-160%);
   transition: transform 1s ease, opacity 1s ease;
   -webkit-transition: transform 1s ease, opacity 1s ease;
   -moz-transition: transform 1s ease, opacity 1s ease;
@@ -452,22 +579,14 @@ span {
   background-image: url(http://www.portflagship.org/wp-content/uploads/2018/11/left-arrow-inside-a-circle.png);
 }
 
-.sliderArrowLeft:hover {
-  transform: translateY(-5px);
-}
-
 .sliderArrowRight {
   background-image: url(http://www.portflagship.org/wp-content/uploads/2018/11/play-button.png);
-  transform: translateX(114px);
+  transform: translateX(285%);
 }
 
 .sliderArrowRightLoaded {
   transform: translateX(125%);
   opacity: 1;
-}
-
-.sliderArrowRight:hover {
-  transform: translate(125%, -5px);
 }
 
 .loading {
@@ -490,7 +609,8 @@ span {
   width: 12px;
   border-radius: 50%;
   background-color: #0092D7;
-  margin: 0 4px;
+  margin: 0px 4px;
+  transform: translateY(10px);
 }
 
 .loading-item.one {
@@ -519,32 +639,32 @@ span {
 
 @keyframes animLoading {
   16.5% {
-    transform: translateY(-30px);
+    transform: translateY(-10px);
     background-color: #6aa337; /*green*/
   }
 
   33% {
-    transform: translateY(0px);
+    transform: translateY(10px);
     background-color: #6aa337; /*green*/
   }
 
   49.5% {
-    transform: translateY(-30px);
+    transform: translateY(-10px);
     background-color: #ffc906; /*yellow*/
   }
 
   66% {
-    transform: translateY(0px);
+    transform: translateY(10px);
     background-color: #ffc906; /*yellow*/
   }
 
   82.5% {
-    transform: translateY(-30px);
+    transform: translateY(-10px);
     background-color: #0092D7; /*blue*/
   }
 
   99% {
-    transform: translateY(0px);
+    transform: translateY(10px);
     background-color: #0092D7; /*blue*/
   }
 }
@@ -631,7 +751,7 @@ span {
 
   100% {
     opacity: 1;
-    transform: translate(8px, -8px);
+    transform: translate(3%, -4%);
   }
 }
 
@@ -641,16 +761,16 @@ span {
   }
 
   100% {
-    transform: translate(-16px, 16px);
+    transform: translate(-6%, 8%);
   }
 }
 
-.imgSlider {
+.imgSliderFlex {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: nowrap;
   position: relative;
 }
 
@@ -662,14 +782,13 @@ span {
 }
 
 .imgSliderIndicator {
-  height: 20px;
-  padding-top: 24px;
+  margin-top: 3.5%;
   width: 100%;
   cursor: default;
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   transition: opacity 300ms ease;
   -webkit-transition: opacity 300ms ease;
   -moz-transition: opacity 300ms ease;
@@ -678,29 +797,28 @@ span {
 }
 
 .imgSliderIndicatorItem {
-  height: 8px;
-  width: 8px;
-  margin: 0 5px;
+  width: .8%;
+  padding-top: .8%;
+  margin: 0 .5%;
   background-color: #222;
   opacity: 0.25;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-  transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -webkit-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -moz-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -ms-transition: width .5s ease, height .5s ease, opacity .5s ease;
-  -o-transition: width .5s ease, height .5s ease, opacity .5s ease;
+  transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -webkit-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -moz-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -ms-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
+  -o-transition: width .5s ease, padding-top .5s ease, opacity .5s ease;
 }
 
 .imgSliderIndicatorItemSelected {
-  height: 10px;
-  width: 10px;
+  width: 1%;
+  padding-top: 1%;
   opacity: 1;
 }
 
 .imgSliderItemImgHolder {
-  margin: 0 16px;
   line-height: 0;
   opacity: 0;
   transform: translateY(-30px);
@@ -727,7 +845,7 @@ span {
 }
 
 .imgSliderItemText {
-  padding: 16px;
+  padding-right: 32px;
 }
 
 .imgSliderItemTextDivider {
@@ -790,10 +908,10 @@ span {
 }
 
 .slider-arrow {
-  max-height: 12px;
-  opacity: 0.0;
-  padding: 8px;
+  position: absolute;
+  width: 32px;
   cursor: pointer;
+  opacity: 0;
   transition: opacity 300ms ease;
   -webkit-transition: opacity 300ms ease;
   -moz-transition: opacity 300ms ease;
@@ -802,13 +920,13 @@ span {
 }
 
 .slider-arrow.aleft {
+  left: 0;
   transform: rotate(90deg);
-  padding-bottom: 0px;
 }
 
 .slider-arrow.aright {
+  right: 0;
   transform: rotate(270deg);
-  padding-bottom: 0px;
 }
 
 @keyframes indicate-left {
@@ -853,39 +971,110 @@ span {
 * ===============================================
 */
 
+.signature {
+  width: 75%;
+  max-width: 250px;
+}
+
+.image {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.image-permanent {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logoFlagship {
+  margin: 1% 4%;
+  background-image: url(http://www.portflagship.org/wp-content/uploads/2013/01/Banner_left.png);
+  height: 115px;
+  width: 347px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logoUGA {
+  margin: 1% 4%;
+  max-height: 115px;
+  background-image: url(http://www.portflagship.org/wp-content/uploads/2018/11/lacsi-logo-e1542519621890.png);
+  height: 115px;
+  width: 490px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .video-container {
+  display: inline-block;
   position: relative;
+  width: 66%;
+  max-width: 375px;
   border: 3px solid #323232;
-  line-height: 1;
-  font-size: 0px;
   cursor: pointer;
-  transition: height 500ms ease, width 500ms ease;
-  overflow: hidden;
 }
 
 .video-thumbnail {
-  display: block;
-  margin: 0 auto;
-  transition: opacity 300ms ease;
-  -webkit-transition: opacity 300ms ease;
-  -moz-transition: opacity 300ms ease;
-  -ms-transition: opacity 300ms ease;
-  -o-transition: opacity 300ms ease;
+  width: 100%;
 }
 
 .video-play-icon {
-  height: 50px;
+  width: 56px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 3%;
+  right: 1.5%;
+  padding: 6px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  background-color: #323232;
+}
+
+.divider-container {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .divider {
+  width: 100px;
+  max-width: 700px;
   height: 2px;
-  max-width: 66px;
+  display: inline-block;
   background-color: #222;
-  margin: 0 auto 24px auto;
+  border-radius: 1px;
+  margin: 1px 12px 0px 12px;
+}
+
+.section {
+  font-family: 'Crimson Text';
+  font-size: 3.0rem;
+  transform: rotate(90deg);
+  cursor: default;
+}
+
+.section.mirror {
+  transform: rotate(90deg) scale(1, -1);
+}
+
+.first-letter {
+  float: left;
+  line-height: .76;
+  font-size: 10rem;
+  padding-right: 6px;
 }
 
 .content-title {
@@ -899,7 +1088,6 @@ span {
 
 .content-subtitle {
   font-family: 'Montserrat';
-  font-weight: regular;
   text-transform: uppercase;
   letter-spacing: 1.4rem;
   font-size: 1.2rem;
@@ -939,7 +1127,7 @@ span {
 
 .content-text-container table td:last-child {
   padding: 16px 0px;
-  text-align: justify;
+  text-align: left;
 }
 
 .content-text-container table th {
@@ -973,6 +1161,7 @@ span {
 .content-link {
   font-family: 'Crimson Text';
   font-size: 1.7rem;
+  white-space: nowrap;
   color: #6aa337;
   text-decoration: none;
   font-weight: bold;
@@ -1015,23 +1204,26 @@ span {
   -o-transition: height 300ms ease;
 }
 
-.immersionTitle {
+.immersion-title {
   position: relative;
-  padding: 8px;
+  padding-top: 8px;
   cursor: pointer;
   border-top: 2px solid #323232;
 }
 
-.immersionArrow {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  transition: transform 300ms ease;
-  -webkit-transition: transform 300ms ease;
-  -moz-transition: transform 300ms ease;
-  -ms-transition: transform 300ms ease;
-  -o-transition: transform 300ms ease;
+.click-for-more {
+  font-family: 'Montserrat';
+  font-size: 1.0rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: .3rem;
+  padding: 4px;
+  border-bottom: 2px solid #323232;
+  border-top: 1px solid #323232;
+  margin-bottom: 32px;
+  margin-top: 8px;
+  cursor: default;
 }
 
 .content-more {
@@ -1063,6 +1255,7 @@ span {
   padding: 0 20px;
   line-height: 37px;
   font-weight: bold;
+  white-space: nowrap;
   text-align: center;
   display: inline-block;
   color: #222;
@@ -1096,7 +1289,7 @@ span {
   font-family: 'Crimson Text';
   font-size: 10rem;
   position: absolute;
-    line-height: 1;
+  line-height: 1;
 }
 
 .quote.start {
@@ -1113,7 +1306,7 @@ span {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
   cursor: default;
 }
@@ -1150,7 +1343,6 @@ _:-ms-lang(x), .headshot-flex {
   height: 200px;
   width: 200px;
   border-radius: 0px;
-  margin-top: 0px;
 }
 
 .headshot-name {
@@ -1184,22 +1376,312 @@ _:-ms-lang(x), .headshot-flex {
   opacity: 0.5;
 }
 
+.student-arrow {
+  width: 32px;
+  cursor: pointer;
+  margin-bottom: 32px;
+}
+
 .partner-flex {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   padding-bottom: 64px;
+}
+
+.partner-flex a {
+  margin: 32px 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 _:-ms-lang(x), .partner-flex {
   justify-content: space-around;
 }
 
-.partner-logo {
-  max-width: 400px;
-  margin: 32px 32px 32px 0;
+.news.column {
+  padding: 0px 32px 0px 64px;
+}
+
+.events.column {
+  padding: 0px 64px 0px 32px;
+}
+
+.news-container {
+  height: 300px;
+  position: relative;
+  margin-bottom: 64px;
+  cursor: pointer;
+}
+
+.news-border {
+  border: 4px solid #323232;
+  line-height: 1;
+  font-size: 0px;
+  overflow: hidden;
+}
+
+.news-inside-border {
+  border: 5px solid #f3f3f3;
+  background: #c3c3c3;
+  line-height: 1;
+  font-size: 0px;
+  overflow: hidden;
+}
+
+.news-image {
+  height: 300px;
+  background-color: #d3d3d3;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  transition: transform 500ms ease, opacity 300ms ease;
+  -webkit-transition: transform 500ms ease, opacity 300ms ease;
+  -moz-transition: transform 500ms ease, opacity 300ms ease;
+  -ms-transition: transform 500ms ease, opacity 300ms ease;
+  -o-transition: transform 500ms ease, opacity 300ms ease;
+}
+
+.news-text-container {
+  position: absolute;
+  bottom: 5%;
+  left: 7%;
+  right: 7%;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 300ms ease;
+  -webkit-transition: opacity 300ms ease;
+  -moz-transition: opacity 300ms ease;
+  -ms-transition: opacity 300ms ease;
+  -o-transition: opacity 300ms ease;
+}
+
+.news-category {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #ffc906;
+  text-shadow: 1.5px 1.5px #222;
+}
+
+.news-title {
+  font-family: 'Montserrat';
+  font-weight: 900;
+  font-size: 3.0rem;
+  line-height: 1;
+  color: white;
+  margin: 3px 0px 0px 0px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #222;
+  cursor: pointer;
+}
+
+.page-selector {
+  margin-bottom: 32px;
+}
+
+.page-number {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin: 0px 4px;
+  border-bottom: 5px solid transparent;
+  cursor: pointer;
+}
+
+.calendar {
+  display: inline-block;
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+  line-height: 1;
+  cursor: default;
+}
+
+.calendar img {
+  position: absolute;
+  top: -1px;
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+.calendar img:first-of-type {
+  left: 24px;
+}
+
+.calendar img:last-of-type {
+  right: 24px;
+}
+
+.calendar span {
+  font-family: 'Montserrat';
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.calendar table {
+  margin: 8px auto 0px auto;
+}
+
+.calendar thead th {
+  width: 48px;
+  height: 48px;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 0;
+  text-align: center;
+}
+
+.calendar tbody td {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 0;
+  text-align: center;
+}
+
+.calendar tbody td div {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 30px;
+  background-color: #ffc906;
+  border-radius: 50%;
+}
+
+.event-popup {
+  width: 80%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #e3e3e3;
+  border: .5px solid #d3d3d3;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -ms-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+}
+
+.event-popup-icon {
+  width: 56px;
+  display: block;
+  margin: 32px auto 16px auto;
+}
+
+.event-popup-date {
+  font-family: 'Montserrat';
+  font-size: 2.0rem;
+  font-weight: 900;
+  line-height: 1;
+  position: absolute;
+  left: 50%;
+  top: 56px;
+  transform: translateX(-50%);
+}
+
+.event-popup-title {
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  padding: 0px 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-popup-text-container {
+  padding: 48px;
+  padding-top: 32px;
+}
+
+.event-popup-header {
+  font-family: 'Montserrat';
+  font-size: 2.0rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.event-popup-text {
+  font-family: 'Crimson Text';
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.event-popup-text:last-of-type {
+  margin-bottom: 0px;
+}
+
+.event-container {
+  position: relative;
+  margin: 32px auto;
+  max-width: 500px;
+  cursor: pointer;
+}
+
+.event-icon {
+  width: 56px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.event-date {
+  font-family: 'Montserrat';
+  font-size: 2.0rem;
+  font-weight: 900;
+  line-height: 1;
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translate(-50%, -20%);
+  cursor: pointer;
+}
+
+.event-text-container {
+  margin-left: 64px;
+  margin-right: 8px;
+}
+
+.event-title {
+  font-family: 'Montserrat';
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.event-description {
+  font-family: 'Crimson Text';
+  font-size: 1.7rem;
+  line-height: 1.2;
+  text-align: left;
+  text-align: justify;
+  cursor: pointer;
 }
 
 .contact-header {
@@ -1207,6 +1689,7 @@ _:-ms-lang(x), .partner-flex {
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .contact-input-container {
@@ -1233,6 +1716,12 @@ _:-ms-lang(x), .partner-flex {
 
 .contact-input:focus {
   border: 1px solid #ffc906 !important;
+}
+
+.image-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /*
@@ -1266,6 +1755,22 @@ _:-ms-lang(x), .partner-flex {
   cursor: default;
 }
 
+.footer-disclaimer {
+  max-width: 55%;
+}
+
+.footer-row {
+  padding: 96px 0px;
+}
+
+.footer-column {
+  width: 27.3333333333%;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 3%;
+}
+
 .footer-flex {
   display: flex;
   align-items: center;
@@ -1278,7 +1783,7 @@ _:-ms-lang(x), .partner-flex {
   font-family: 'Crimson Text';
   color: white;
   font-size: 1.5rem;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   line-height: 1.3;
   margin-left: 16px;
@@ -1299,16 +1804,13 @@ _:-ms-lang(x), .partner-flex {
 }
 
 .footer-icon {
-  max-height: 20px;
+  max-height: 24px;
 }
 
 .questions-background {
-  background-color: #222222;
-  background-image: url(http://www.portflagship.org/wp-content/uploads/2018/12/brazil.jpg);
-  background-blend-mode: multiply;
+  background-image: url(http://www.portflagship.org/wp-content/uploads/2018/12/brazil-darker.png);
   background-attachment: fixed;
   background-position: center;
-  filter: grayscale(100%);
 }
 
 /*
@@ -1322,6 +1824,8 @@ _:-ms-lang(x), .partner-flex {
 
 .center-text { text-align: center; }
 .justify-text { text-align: justify; }
+.left-text { text-align: left !important;}
+.right-text { text-align: right; }
 
 .light-grey { background-color: #f3f3f3; }
 .grey { background-color: #d3d3d3; }
@@ -1344,11 +1848,11 @@ _:-ms-lang(x), .partner-flex {
 .pad24 { padding: 24px; }
 .pad16 { padding: 16px; }
 
-.padNoTop { padding-top: 0; }
-.padNoBottom { padding-bottom: 0; }
-.padNoLeft { padding-left: 0; }
-.padNoRight { padding-right: 0; }
-.padNone { padding: 0; }
+.padNoTop { padding-top: 0 !important; }
+.padNoBottom { padding-bottom: 0 !important; }
+.padNoLeft { padding-left: 0 !important; }
+.padNoRight { padding-right: 0 !important; }
+.padNone { padding: 0 !important; }
 
 .bottom96 { margin-bottom: 96px; }
 .bottom64 { margin-bottom: 64px; }
@@ -1366,13 +1870,18 @@ _:-ms-lang(x), .partner-flex {
 .right32 { margin-right: 32px; }
 .right16 { margin-right: 16px; }
 
+.left48 { margin-left: 48px; }
+.left32 { margin-left: 32px; }
+.left16 { margin-left: 16px; }
+
 .marg32 { margin: 0 32px 32px 32px; }
 .marg64 { margin: 0 64px; }
 
-.noright { margin-right: 0; }
-.noleft { margin-left: 0; }
-.notop { margin-top: 0; }
-.nobottom { margin-bottom: 0; }
+.noright { margin-right: 0 !important; }
+.noleft { margin-left: 0 !important; }
+.notop { margin-top: 0 !important; }
+.nobottom { margin-bottom: 0 !important; }
+.nomargin { margin: 0 !important; }
 
 .relative { position: relative; }
 .absolute { position: absolute; }
@@ -1391,30 +1900,6 @@ _:-ms-lang(x), .partner-flex {
 .center {
   margin: 0 auto;
   display: block;
-}
-
-.left24 {
-  transform: translateX(-24px);
-}
-
-.left48 {
-  transform: translateX(-48px);
-}
-
-.right24 {
-  transform: translateX(24px);
-}
-
-.right48 {
-  transform: translateX(48px);
-}
-
-.right24up32 {
-  transform: translate(24px, -32px);
-}
-
-.left24down32 {
-  transform: translate(-24px, 32px);
 }
 
 .font20 {
@@ -1437,8 +1922,13 @@ _:-ms-lang(x), .partner-flex {
   padding: 5px;
   border: 3px solid #323232;
   line-height: 1;
-  margin: 0px 32px;
+  margin: 16px calc(1.5% + 16px);
   font-size: 0px;
+}
+
+.container-border {
+  padding: 10px;
+  border: 5px solid #323232;
 }
 
 .cursorDefault {
@@ -1456,8 +1946,8 @@ _:-ms-lang(x), .partner-flex {
 */
 
 #map {
-  height: 300px;
-  width: 300px;
+  position: relative;
+  width: 90%;
   background-color: #323232;
   margin: 0 auto;
   overflow: hidden;
@@ -1465,7 +1955,6 @@ _:-ms-lang(x), .partner-flex {
 
 #placeholder {
   width: 100%;
-  height: 100%;
   opacity: 0.25;
   z-index: -1;
 }

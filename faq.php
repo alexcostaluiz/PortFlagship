@@ -3,10 +3,16 @@
 
 <!-- FAQ content container -->
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64 padNoBottom bottom32">
     <span class="content-title clearboth">FAQ</span>
   </div>
-  <div class="divider"></div>
+  <div class="divider-container bottom32">
+    <span class="section">§</span>
+    <div class="divider"></div>
+    <span class="section mirror">§</span>
+  </div>
+  <div class="extra"></div>
   <div class="row-flex pad64 padNoTop">
     <div class="seven columns">
       <p class="content-header center-text font20 pad16">Am I eligable to apply?</p>

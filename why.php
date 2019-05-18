@@ -1,35 +1,40 @@
 <?php $pageTitle = "Why Portuguese?" ?>
+<?php
+  $imgSliderData = file_get_contents("assets/why.json");
+?>
+<script type="text/javascript">
+  window.imgSliderData = <?php echo $imgSliderData ?>
+</script>
 <?php require 'header.php' ?>
 
 <!-- Why content container -->
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">Why Portuguese?</span>
     <span class="content-subtitle clearboth">Why Brazil?</span>
   </div>
+  <div class="extra"></div>
   <div class="row-flex bottom48">
     <div class="eight columns">
-      <div class="imgSlider" @mouseover="mouseenter" @mouseout="mouseleave" style="justify-content: space-between">
-        <div class="loading" :class="{ohide: loaded}">
-          <div class="loading-item one"></div>
-          <div class="loading-item two"></div>
-          <div class="loading-item three"></div>
-        </div>
-        <img class="slider-arrow aleft" :class="{'aleft-animate': hovered, oshow: hovered}" @click="goToImg(0, 0)" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
-        <div class="imgSliderItem" :class="{imgSliderItemAnimLeft: exitLeft, imgSliderItemAnimRight: exitRight}" id="imgSliderItem">
-          <div class="imgSliderItemText">
-            <div style="overflow: hidden">
-              <span class="imgSliderItemTitle clearboth" :class="{imgSliderItemTitleAnim: animate}" ref="imgSliderItemTitle">{{ title }}</span>
+      <div class="imgSlider" @mouseover="mouseenter" @mouseout="mouseleave">
+        <div class="imgSliderFlex">
+          <img class="slider-arrow aleft" :class="{oshow: hovered}" @click="goToImg(0, 0)" src="assets/expand-more.svg" alt="">
+          <div id="imgSliderItem" class="imgSliderItem" :class="{imgSliderItemAnimLeft: exitLeft, imgSliderItemAnimRight: exitRight}">
+            <div class="imgSliderItemText">
+              <div style="overflow: hidden">
+                <span class="imgSliderItemTitle clearboth" :class="{imgSliderItemTitleAnim: animate}" ref="imgSliderItemTitle">{{ title }}</span>
+              </div>
+              <div class="imgSliderItemTextDivider" :class="{imgSliderItemTextDividerAnim: animate}" ref="imgSliderItemTextDivider"></div>
+              <span class="imgSliderItemSubtitle clearboth" :class="{imgSliderItemSubtitleAnim: animate}" ref="imgSliderItemSubtitle">{{ subtitle }}</span>
             </div>
-            <div class="imgSliderItemTextDivider" :class="{imgSliderItemTextDividerAnim: animate}" ref="imgSliderItemTextDivider"></div>
-            <span class="imgSliderItemSubtitle clearboth" :class="{imgSliderItemSubtitleAnim: animate}" ref="imgSliderItemSubtitle">{{ subtitle }}</span>
+            <div class="yellow imgSliderItemImgHolder" :class="{imgSliderItemImgHolderAnim: animate}" ref="imgSliderItemImgHolder">
+              <img class="imgSliderItemImg" :class="{imgSliderItemImgAnim: animate}" :src="img" ref="imgSliderItemImg" alt="">
+            </div>
           </div>
-          <div class="yellow imgSliderItemImgHolder" :class="{imgSliderItemImgHolderAnim: animate}" ref="imgSliderItemImgHolder">
-            <img class="imgSliderItemImg" :class="{imgSliderItemImgAnim: animate}" :src="img" ref="imgSliderItemImg" alt="">
-          </div>
+          <img class="slider-arrow aright" :class="{oshow: hovered}" @click="goToImg(1, 0)" src="assets/expand-more.svg" alt="">
         </div>
-        <img class="slider-arrow aright" :class="{'aright-animate': hovered, oshow: hovered}" @click="goToImg(1, 0)" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" alt="">
-        <div class="imgSliderIndicator" :class="{oshow: hovered}" @mouseover="mouseenter" @mouseout="mouseleave">
+        <div class="imgSliderIndicator" :class="{oshow: hovered}">
           <div class="imgSliderIndicatorItem" v-for="index in length" :key="index" :class="{imgSliderIndicatorItemSelected: ((index - 1) === current)}"  @click="goToImg(2, index)"></div>
         </div>
       </div>
@@ -64,6 +69,7 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
 </div>
 
 <?php require 'footer.php' ?>

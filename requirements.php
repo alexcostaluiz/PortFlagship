@@ -2,10 +2,12 @@
 <?php require 'header.php' ?>
 
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">Program Requirements</span>
     <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
+  <div class="extra"></div>
   <div class="row-flex">
     <div class="eight columns">
       <div class="content-text-container padNone bottom64">
@@ -25,9 +27,13 @@
       </div>
     </div>
   </div>
-  <div class="divider bottom64" style="max-width: 20%"></div>
+  <div class="divider-container bottom64">
+    <span class="section">§</span>
+    <div class="divider" style="width: 30%"></div>
+    <span class="section mirror">§</span>
+  </div>
   <div class="row-flex">
-    <div class="six columns">
+    <div class="requirement column">
       <div class="content-text-container padNone bottom56 justify-text">
         <span class="content-header center-text clearboth">Curricular Requirements</span>
         <span class="content-paragraph clearboth">
@@ -85,7 +91,11 @@
       </div>
     </div>
   </div>
-  <div class="divider bottom64" style="max-width: 20%"></div>
+  <div class="divider-container bottom64">
+    <span class="section">§</span>
+    <div class="divider" style="width: 30%"></div>
+    <span class="section mirror">§</span>
+  </div>
   <div class="row-flex">
     <div class="eight columns">
       <div class="content-text-container padNone bottom56">

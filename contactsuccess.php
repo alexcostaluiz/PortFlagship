@@ -1,9 +1,15 @@
 <!-- Contact content container -->
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64 padNoBottom bottom32">
     <span class="content-title clearboth">Contact Us</span>
   </div>
-  <div class="divider bottom32"></div>
+  <div class="divider-container bottom32">
+    <span class="section">§</span>
+    <div class="divider"></div>
+    <span class="section mirror">§</span>
+  </div>
+  <div class="extra"></div>
   <div class="row-flex bottom64">
     <div class="four columns">
       <div class="content-text-container padNone bottom32">
@@ -16,4 +22,5 @@
       <a href="contact.php" class="content-button invert">Return</a>
     </div>
   </div>
+  <div class="extra"></div>
 </div>

@@ -2,10 +2,12 @@
 <?php require 'header.php' ?>
 
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">K-12 Portuguese</span>
     <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
+  <div class="extra"></div>
   <div class="row-flex bottom56">
     <div class="eight columns">
       <span class="content-header center-text clearboth">Portuguese Summer Program for High School Students</span>
@@ -13,9 +15,7 @@
     </div>
   </div>
   <div class="row-flex bottom56">
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/themes/striking/includes/timthumb.php?src=/wp-content/uploads/2013/01/Jack-Anthony-NGCSU-Fall-Panoramic-w-New-Library1.jpg&h=250&w=628&zc=1" alt="">
-    </div>
+    <img class="image-border" style="max-width: 650px" src="http://www.portflagship.org/wp-content/themes/striking/includes/timthumb.php?src=/wp-content/uploads/2013/01/Jack-Anthony-NGCSU-Fall-Panoramic-w-New-Library1.jpg&h=250&w=628&zc=1" width="80%" alt="">
   </div>
   <div class="row-flex">
     <div class="eight columns">
@@ -42,7 +42,9 @@
     </div>
   </div>
   <div class="row-flex bottom16">
-    <b><span class="content-paragraph">For more information please contact Ms. Klen-Alves:</span></b>
+    <div class="eight columns">
+      <b><span class="content-paragraph">For more information please contact Ms. Klen-Alves:</span></b>
+    </div>
   </div>
   <div class="headshot-flex bottom32">
     <div class="headshot-container notop">

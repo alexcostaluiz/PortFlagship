@@ -3,10 +3,12 @@
 
 <!-- Program content container -->
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">Study Abroad</span>
     <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
+  <div class="extra"></div>
   <div class="row-flex bottom96">
     <div class="eight columns">
       <div class="content-text-container padNone">
@@ -22,12 +24,17 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
   <div class="row">
-    <div class="six columns pad64 padNoTop">
-      <span class="content-header center-text bottom16 clearboth">Summer Immersion Programs</span>
-      <div class="divider bottom48"></div>
-      <div id="isaTitle" class="immersionTitle" onclick="immersionMore('isa')">
-        <img id="isaArrow" class="immersionArrow" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" height="12px" alt="">
+    <div class="program column pad64 padNoTop extra-margin">
+      <span class="content-header center-text bottom32 clearboth">Summer Immersion Programs</span>
+      <div class="divider-container bottom32">
+        <span class="section">§</span>
+        <div class="divider"></div>
+        <span class="section mirror">§</span>
+      </div>
+      <div class="bottom32"></div>
+      <div id="isaTitle" class="immersion-title" onclick="immersionMore('isa')">
         <span class="content-header center-text font20 clearboth" style="cursor: pointer">Intensive Portuguese Language Program</span>
         <span class="content-subheader center-text clearboth" style="cursor: pointer">Florianópolis, Brazil</span>
       </div>
@@ -70,34 +77,55 @@
           <br>
           <br>
         </span>
-        <p class="content-header font20">Sessions</p>
-        <span class="content-paragraph justify-text clearboth">
-          Please visit the <a class="content-link" target="_blank" href="https://studiesabroad.com/programs/country/brazil/city/florianopolis/duration/115">ISA website</a> for available sessions.<br>
-          <br>
-          <br>
-        </span>
         <p class="content-header font20">More Information</p>
         <span class="content-paragraph justify-text clearboth bottom8">
           Please visit the <a class="content-link" target="_blank" href="https://studiesabroad.com/programs/country/brazil/city/florianopolis/duration/115/program/273">ISA website</a> for more information.
         </span>
       </div>
-      <div class="bottom32" style="border-top: 2px solid #323232"></div>
-      <div id="middleburyTitle" class="immersionTitle" onclick="immersionMore('middlebury')">
-        <img id="middleburyArrow" class="immersionArrow" src="http://www.portflagship.org/wp-content/uploads/2018/11/arrow.png" height="12px" alt="">
+      <div class="click-for-more">Click title for more</div>
+      <div id="middleburyTitle" class="immersion-title" onclick="immersionMore('middlebury')">
         <span class="content-header center-text font20 clearboth" style="cursor: pointer">Middlebury Portuguese School</span>
         <span class="content-subheader center-text clearboth" style="cursor: pointer">Middlebury, Vermont</span>
       </div>
       <div id="middlebury" class="content-expand">
-        <p class="content-header font20 top48">More Information</p>
+        <p class="content-header font20 top48">Background</p>
+        <span class="content-paragraph justify-text clearboth">
+          The Middlebury Portuguese School is a 7-week summer immersion course in Portuguese. Students read, write,
+          listen, and speak Portuguese 24 hours a day, seven days a week.<br>
+          <br>
+          The School is open to all levels of students who want to learn Portuguese - from beginners to advanced
+          levels. Middlebury students are undergraduates, graduate students, professionals, and life-long learners
+          from all over the world.<br>
+          <br>
+          Students enrolled in the Portuguese School will be registered in one of five levels according to their proficiency
+          as determined by placement tests and prior experience with Portuguese or other Romance Languages. Students will
+          also have the opportunity to take graduate level credits to be transferred to other programs.<br>
+          <br>
+          Daily activities normally include four to five hours of classroom instruction plus additional homework and assignments.
+          All students in the Portuguese School will engage in extensive reading activities using the texts from the invited
+          lecturers, novels, short stories, plays, and journalistic accounts. Each level offers three required units encompassing
+          grammatical forms, stylistics and composition, pronunciation and phonetics, oral expression in formal contexts, as well
+          as interpersonal oral expression.<br>
+          <br>
+          Students in the Portuguese School will make rapid gains in speaking Portuguese, earning a full year's worth
+          of college credit in just seven weeks.<br>
+          <br>
+          <br>
+        </span>
+        <p class="content-header font20">More Information</p>
         <span class="content-paragraph justify-text clearboth bottom8">
           Please visit the <a class="content-link" target="_blank" href="http://www.middlebury.edu/ls/portuguese">Middlebury website</a> for more information.
         </span>
       </div>
-      <div class="bottom32" style="border-top: 2px solid #323232"></div>
+      <div class="click-for-more">Click title for more</div>
     </div>
-    <div class="six columns pad64 padNoTop">
-      <span class="content-header center-text bottom16 clearboth">Capstone Year</span>
-      <div class="divider bottom48"></div>
+    <div class="program column pad64 padNoTop">
+      <span class="content-header center-text bottom32 clearboth">Capstone Year</span>
+      <div class="divider-container bottom32">
+        <span class="section">§</span>
+        <div class="divider"></div>
+        <span class="section mirror">§</span>
+      </div>
       <p class="content-header font20">Background</p>
       <span class="content-paragraph justify-text clearboth">
         The Capstone Year abroad is the PFP's main and most enriching

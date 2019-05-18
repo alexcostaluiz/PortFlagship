@@ -2,10 +2,12 @@
 <?php require 'header.php' ?>
 
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">Financial Aid</span>
     <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
+  <div class="extra"></div>
   <div class="row-flex">
     <div class="eight columns">
       <div class="content-text-container padNone bottom64">
@@ -26,13 +28,15 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
   <div class="row-flex">
     <div class="eight columns">
       <div class="content-text-container padNone bottom64">
         <span class="content-header clearboth">Scholarship Requirements</span>
         <span class="content-paragraph">
           In order for a UGA undergraduate to receive Flagship Scholarships he or she must:
-          <ul>
+          <ul style="text-align: left">
             <li>Fulfill the PFP application and eligibility requirements.</li>
             <li>Demonstrate substantial progress towards a professional level of Portuguese proficiency.</li>
             <li>Actively participate in the tutorials and Extracurricular Requirements indicated above.</li>
@@ -45,6 +49,8 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
   <div class="row-flex">
     <div class="eight columns">
       <div class="content-text-container padNone bottom64 center-text">
@@ -59,6 +65,7 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
 </div>
 
 <?php require 'footer.php' ?>

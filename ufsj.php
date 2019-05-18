@@ -2,18 +2,21 @@
 <?php require 'header.php' ?>
 
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64 padNoBottom bottom32">
     <span class="content-title clearboth">UFSJ</span>
   </div>
-  <div class="divider bottom64"></div>
-  <div class="row-flex bottom64">
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2012/10/UFSJ-picture2.jpg" alt="">
-    </div>
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2012/10/UFSJ-picture1.jpg" height="189px" alt="">
-    </div>
+  <div class="divider-container bottom32">
+    <span class="section">§</span>
+    <div class="divider"></div>
+    <span class="section mirror">§</span>
   </div>
+  <div class="extra"></div>
+  <div class="row-flex pad64 padNoTop" style="flex-wrap: wrap">
+    <img class="image-border" style="min-height: 150px; min-width: 246.825397px" src="http://www.portflagship.org/wp-content/uploads/2012/10/UFSJ-picture2.jpg" width="21%" alt="">
+    <img class="image-border" style="min-height: 150px; min-width: 200.425532px" src="http://www.portflagship.org/wp-content/uploads/2012/10/UFSJ-picture1.jpg" width="17.05%" alt="">
+  </div>
+  <div class="extra"></div>
   <div class="row-flex">
     <div class="eight columns" style="position: relative">
       <div class="content-text-container padNone">
@@ -74,11 +77,14 @@
       </div>
     </div>
   </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
   <div class="row-flex pad64">
     <span class="content-header">Overseas Program Staff</span>
   </div>
-  <div class="row-flex">
-    <div class="eight columns">
+  <div class="row-flex bottom32">
+    <div class="headshots column">
+      <div class="extra"></div>
       <div class="headshot-flex">
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -86,8 +92,6 @@
           </div>
           <span class="headshot-name clearboth">Sergio Cerqueira</span>
           <span class="headshot-major clearboth">President of Universidade Federal de São João del-Rei (UFSJ)</span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -104,8 +108,6 @@
           </div>
           <span class="headshot-name clearboth">Carolina Vianini</span>
           <span class="headshot-major clearboth">Professor and Pedagogical Coordinator</span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -113,9 +115,6 @@
           </div>
           <span class="headshot-name clearboth">Danielly Tolentino</span>
           <span class="headshot-major clearboth">Assistant Overseas Coordinator</span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -124,7 +123,6 @@
           <span class="headshot-name clearboth">Bruno Marques</span>
           <span class="headshot-major clearboth">Housing Coordinator</span>
           <span class="headshot-major clearboth">Email: <a href="mailto:republicasflagship@gmail.com">republicasflagship@gmail.com</a></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -133,8 +131,6 @@
           <span class="headshot-name clearboth">Alberto Tibaji</span>
           <span class="headshot-major clearboth">Professor</span>
           <span class="headshot-major clearboth">Email: <a href="mailto:tibaji.alberto@gmail.com">tibaji.alberto@gmail.com</a></span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -152,8 +148,6 @@
           <span class="headshot-name clearboth">Jose Resende</span>
           <span class="headshot-major clearboth">Professor</span>
           <span class="headshot-major clearboth">Email: <a href="mailto:jresende@ufsj.edu.br">jresende@ufsj.edu.br</a></span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -162,7 +156,6 @@
           <span class="headshot-name clearboth">Nadia Biavati</span>
           <span class="headshot-major clearboth">Professor</span>
           <span class="headshot-major clearboth">Email: <a href="mailto:nadiabiavati@yahoo.com.br">nadiabiavati@yahoo.com.br</a></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
         <div class="headshot-container notop">
           <div class="headshot-border">
@@ -170,9 +163,6 @@
           </div>
           <span class="headshot-name clearboth">Katia Barbosa</span>
           <span class="headshot-major clearboth">Admin Support</span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
-          <span class="headshot-major clearboth"><br></span>
         </div>
       </div>
     </div>

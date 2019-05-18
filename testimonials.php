@@ -2,10 +2,12 @@
 <?php require 'header.php' ?>
 
 <div class="container light-grey">
+  <div class="extra"></div>
   <div class="row pad64">
     <span class="content-title clearboth">Student Testimonials</span>
     <span class="content-subtitle clearboth">Portuguese Flagship</span>
   </div>
+  <div class="extra"></div>
   <div class="headshot-flex">
     <div class="headshot-container notop bottom16">
       <div class="headshot-border">
@@ -16,12 +18,12 @@
     </div>
   </div>
   <div class="row-flex">
-    <div class="eight columns">
+    <div class="testimonial column">
       <div class="content-text-container padNone bottom64" style="position: relative">
         <span class="quote start">“</span>
         <span class="content-paragraph">
           <br>
-          So it’s been a solid 10 days in São João del Rei and I have nothing but happy things to say about this
+          <span class="first-letter">S</span>o it’s been a solid 10 days in São João del Rei and I have nothing but happy things to say about this
           charming little town that I will call home until about July. “Brilho nos olhos, apaixonado pelo que você
           faz” can be best translated into “having a twinkle in your eyes, being passionate with what you do” and it
           is the biggest thing I took away from orientation last week. Although our entire group started making jokes
@@ -44,15 +46,17 @@
       </div>
     </div>
   </div>
-  <div class="row-flex bottom96">
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/cohort-3-10.jpg" height="210px" alt="">
-    </div>
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/323f6f1.jpg" height="210px" alt="">
-    </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
+  <div class="row-flex pad96 padNoTop padNoBottom bottom96" style="flex-wrap: wrap">
+    <img class="image-border" style="min-height: 150px; min-width: 225.358852px" src="http://www.portflagship.org/wp-content/uploads/2015/02/cohort-3-10.jpg" width="25%" alt="">
+    <img class="image-border" style="min-height: 150px; min-width: 150px" src="http://www.portflagship.org/wp-content/uploads/2015/02/323f6f1.jpg" width="16.65%" alt="">
   </div>
-  <div class="divider bottom96" style="max-width: 50%"></div>
+  <div class="divider-container bottom96">
+    <span class="section">§</span>
+    <div class="divider" style="width: 30%"></div>
+    <span class="section mirror">§</span>
+  </div>
   <div class="headshot-flex">
     <div class="headshot-container notop bottom16">
       <div class="headshot-border">
@@ -63,12 +67,12 @@
     </div>
   </div>
   <div class="row-flex">
-    <div class="eight columns">
+    <div class="testimonial column">
       <div class="content-text-container padNone bottom64" style="position: relative">
         <span class="quote start">“</span>
         <span class="content-paragraph">
           <br>
-          My experience in the Flagship Portuguese Program proved immensely enriching culturally and linguistically
+          <span class="first-letter">M</span>y experience in the Flagship Portuguese Program proved immensely enriching culturally and linguistically
           and I am sure that all of the students who travel with this program would say similar. What I was not
           prepared to say until my return to the University of Georgia is  that by virtue of these aspects I have
           gained compassion unknown to me before this year abroad. Compassion for students my age who grow up in different
@@ -80,15 +84,17 @@
       </div>
     </div>
   </div>
-  <div class="row-flex bottom96">
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/tamar.jpg" height="210px" alt="">
-    </div>
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/tamar-2-300x229.jpg" height="210px" alt="">
-    </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
+  <div class="row-flex pad96 padNoTop padNoBottom bottom96" style="flex-wrap: wrap">
+    <img class="image-border" style="min-height: 150px; min-width: 195.319149px" src="http://www.portflagship.org/wp-content/uploads/2015/02/tamar.jpg" width="21.7%" alt="">
+    <img class="image-border" style="min-height: 150px; min-width: 196.50655px" src="http://www.portflagship.org/wp-content/uploads/2015/02/tamar-2-300x229.jpg" width="21.8%" alt="">
   </div>
-  <div class="divider bottom96" style="max-width: 50%"></div>
+  <div class="divider-container bottom96">
+    <span class="section">§</span>
+    <div class="divider" style="width: 30%"></div>
+    <span class="section mirror">§</span>
+  </div>
   <div class="headshot-flex">
     <div class="headshot-container notop bottom16">
       <div class="headshot-border">
@@ -99,12 +105,12 @@
     </div>
   </div>
   <div class="row-flex">
-    <div class="eight columns">
+    <div class="testimonial column">
       <div class="content-text-container padNone bottom64" style="position: relative">
         <span class="quote start">“</span>
         <span class="content-paragraph">
           <br>
-          My takeaway from spending almost a year abroad with the Portuguese Flagship program was a journey of
+          <span class="first-letter">M</span>y takeaway from spending almost a year abroad with the Portuguese Flagship program was a journey of
           self-exploration. Upon a return to the States, many do not comprehend a nugget of the innumerable life
           lessons faced and conquered, but with Flagship you get to examine the world afar. Cultural differences,
           like taking a two-hour lunch break, strangers giving their best directions and being dizzily lost, or
@@ -118,14 +124,14 @@
       </div>
     </div>
   </div>
-  <div class="row-flex bottom96">
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/Dani-Roldan-6.jpg" height="210px" alt="">
-    </div>
-    <div class="image-border">
-      <img src="http://www.portflagship.org/wp-content/uploads/2015/02/Dani-Roldan-9-300x237.jpg" height="210px" alt="">
-    </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
+  <div class="row-flex pad96 padNoTop padNoBottom bottom96" style="flex-wrap: wrap">
+    <img class="image-border" style="min-height: 150px; min-width: 194.244604px" src="http://www.portflagship.org/wp-content/uploads/2015/02/Dani-Roldan-6.jpg" width="18.78%" alt="">
+    <img class="image-border" style="min-height: 150px; min-width: 189.873418px" src="http://www.portflagship.org/wp-content/uploads/2015/02/Dani-Roldan-9-300x237.jpg" width="18.35%" alt="">
   </div>
+  <div class="extra"></div>
+  <div class="extra"></div>
 </div>
 
 <?php require 'footer.php' ?>
